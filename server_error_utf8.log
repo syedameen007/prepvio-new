@@ -1,0 +1,2946 @@
+[dotenv@17.2.3] injecting env (24) from .env -- tip: ≡ƒ¢á∩╕Å  run anywhere with `dotenvx run -- yourcommand`
+Loaded environment variables from C:\Users\YASEEN\Desktop\prepvio-updated\Prepvio-\Backened\.env
+GROQ_API_KEY loaded: gsk_...qc4q
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ≡ƒôí add observability to secrets: https://dotenvx.com/ops
+node : ΓÜá∩╕Å SMTP 
+credentials are not 
+configured. Email 
+sending is disabled 
+until 
+GMAIL_USER/GMAIL_PASS 
+are set.
+At line:1 char:1
++ node server.js > 
+server_error.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ΓÜá∩╕Å SMTP c   
+ re...L_PASS are se    
+t.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+GROQ_API_KEY loaded: gsk_...qc4q
+file:///C:/Users/YASEEN
+/Desktop/prepvio-update
+d/Prepvio-/Backened/nod
+e_modules/@vladmandic/f
+ace-api/dist/face-api.e
+sm.js:14
+`;return 
+c[c.length-1]=" "+c[c.l
+ength-1]+"]"+(s?"":m),c
+}function ec(e){let 
+t=[];for(let n=0;n<e.le
+ngth;n+=2)t.push([e[n],
+e[n+1]]);return t}var W
+t=class{constructor(e,t
+,n){if(this.dtype=t,thi
+s.shape=e.slice(),this.
+size=ot(e),n!=null){let
+ a=n.length;A(a===this.
+size,()=>`Length of 
+values '${a}' does not 
+match the size 
+inferred by the shape '
+${this.size}'.`)}if(t==
+="complex64")throw new 
+Error("complex64 dtype 
+TensorBuffers are not 
+supported. Please 
+create a TensorBuffer 
+for the real and 
+imaginary parts 
+separately and call 
+tf.complex(real, imag).
+");this.values=n||Sv(t,
+this.size),this.strides
+=Xl(e)}set(e,...t){t.le
+ngth===0&&(t=[0]),A(t.l
+ength===this.rank,()=>`
+The number of provided 
+coordinates 
+(${t.length}) must 
+match the rank 
+(${this.rank})`);let n=
+this.locToIndex(t);this
+.values[n]=e}get(...e){
+e.length===0&&(e=[0]);l
+et t=0;for(let a of e){
+if(a<0||a>=this.shape[t
+]){let r=`Requested 
+out of range element 
+at ${e}.   Buffer shape
+=${this.shape}`;throw 
+new Error(r)}t++}let n=
+e[e.length-1];for(let a
+=0;a<e.length-1;++a)n+=
+this.strides[a]*e[a];re
+turn this.values[n]}loc
+ToIndex(e){if(this.rank
+===0)return 0;if(this.r
+ank===1)return 
+e[0];let t=e[e.length-1
+];for(let n=0;n<e.lengt
+h-1;++n)t+=this.strides
+[n]*e[n];return t}index
+ToLoc(e){if(this.rank==
+=0)return[];if(this.ran
+k===1)return[e];let 
+t=new Array(this.shape.
+length);for(let n=0;n<t
+.length-1;++n)t[n]=Math
+.floor(e/this.strides[n
+]),e-=t[n]*this.strides
+[n];return 
+t[t.length-1]=e,t}get 
+rank(){return this.shap
+e.length}toTensor(){ret
+urn za().makeTensor(thi
+s.values,this.shape,thi
+s.dtype)}},za=null,Sl=n
+ull,MM=null;function 
+OM(e){za=e}function 
+PM(e){Sl=e}function 
+LM(e){MM=e}var Ce=class
+{constructor(e,t,n,a){t
+his.kept=!1,this.isDisp
+osedInternal=!1,this.sh
+ape=e.slice(),this.dtyp
+e=t||"float32",this.siz
+e=ot(e),this.strides=Xl
+(e),this.dataId=n,this.
+id=a,this.rankType=this
+.rank<5?this.rank.toStr
+ing():"higher"}get 
+rank(){return this.shap
+e.length}async 
+buffer(){let e=await 
+this.data();return Sl.b
+uffer(this.shape,this.d
+type,e)}bufferSync(){re
+turn Sl.buffer(this.sha
+pe,this.dtype,this.data
+Sync())}async 
+array(){let e=await 
+this.data();return El(t
+his.shape,e,this.dtype=
+=="complex64")}arraySyn
+c(){return El(this.shap
+e,this.dataSync(),this.
+dtype==="complex64")}as
+ync data(){this.throwIf
+Disposed();let e=za().r
+ead(this.dataId);if(thi
+s.dtype==="string"){let
+ t=await e;try{return t
+.map(n=>qh(n))}catch(n)
+{throw new 
+Error("Failed to 
+decode the string 
+bytes into utf-8. To 
+get the original 
+bytes, call tensor.byte
+s().")}}return 
+e}dataToGPU(e){return t
+his.throwIfDisposed(),z
+a().readToGPU(this.data
+Id,e)}dataSync(){this.t
+hrowIfDisposed();let e=
+za().readSync(this.data
+Id);if(this.dtype==="st
+ring")try{return e.map(
+t=>qh(t))}catch(t){thro
+w new Error("Failed to 
+decode the string 
+bytes into utf-8. To 
+get the original 
+bytes, call tensor.byte
+s().")}return e}async b
+ytes(){this.throwIfDisp
+osed();let e=await za()
+.read(this.dataId);retu
+rn this.dtype==="string
+"?e:new Uint8Array(e.bu
+ffer)}dispose(){this.is
+Disposed||(this.kerasMa
+sk&&this.kerasMask.disp
+ose(),za().disposeTenso
+r(this),this.isDisposed
+Internal=!0)}get 
+isDisposed(){return thi
+s.isDisposedInternal}th
+rowIfDisposed(){if(this
+.isDisposed)throw new 
+Error("Tensor is dispos
+ed.")}print(e=!1){retur
+n Sl.print(this,e)}clon
+e(){return this.throwIf
+Disposed(),Sl.clone(thi
+s)}toString(e=!1){let t
+=this.dataSync();return
+ DM(t,this.shape,this.d
+type,e)}cast(e){return 
+this.throwIfDisposed(),
+Sl.cast(this,e)}variabl
+e(e=!0,t,n){return this
+.throwIfDisposed(),za()
+.makeVariable(this,e,t,
+n)}};Object.definePrope
+rty(Ce,Symbol.hasInstan
+ce,{value:e=>!!e&&e.dat
+a!=null&&e.dataSync!=nu
+ll&&e.throwIfDisposed!=
+null});function 
+Q(){return Cv("Tensor",
+()=>Ce)}Q();var 
+os=class extends Ce{con
+structor(e,t,n,a){super
+(e.shape,e.dtype,e.data
+Id,a),this.trainable=t,
+this.name=n}assign(e){i
+f(e.dtype!==this.dtype)
+throw new Error(`dtype 
+of the new value 
+(${e.dtype}) and 
+previous value 
+(${this.dtype}) must ma
+tch`);if(!Ar(e.shape,th
+is.shape))throw new 
+Error(`shape of the 
+new value (${e.shape}) 
+and previous value 
+(${this.shape}) must ma
+tch`);za().disposeTenso
+r(this),this.dataId=e.d
+ataId,za().incRef(this,
+null)}dispose(){za().di
+sposeVariable(this),thi
+s.isDisposedInternal=!0
+}};Object.definePropert
+y(os,Symbol.hasInstance
+,{value:e=>e 
+instanceof Ce&&e.assign
+!=null&&e.assign 
+instanceof 
+Function});var Wa={};_e
+(Wa,{assertTypesMatch:(
+)=>tN,getTensorsInConta
+iner:()=>_v,isTensorInL
+ist:()=>WM,makeTypesMat
+ch:()=>_t});var kx;(fun
+ction(e){e.R0="R0",e.R1
+="R1",e.R2="R2",e.R3="R
+3",e.R4="R4",e.R5="R5",
+e.R6="R6"})(kx||(kx={})
+);var Ix;(function(e){e
+.float32="float32",e.in
+t32="int32",e.bool="int
+32",e.complex64="comple
+x64"})(Ix||(Ix={}));var
+ Sx;(function(e){e.floa
+t32="float32",e.int32="
+int32",e.bool="bool",e.
+complex64="complex64"})
+(Sx||(Sx={}));var Nx;(f
+unction(e){e.float32="f
+loat32",e.int32="float3
+2",e.bool="float32",e.c
+omplex64="complex64"})(
+Nx||(Nx={}));var Tx;(fu
+nction(e){e.float32="co
+mplex64",e.int32="compl
+ex64",e.bool="complex64
+",e.complex64="complex6
+4"})(Tx||(Tx={}));var z
+M={float32:Nx,int32:Ix,
+bool:Sx,complex64:Tx};f
+unction fa(e,t){if(e===
+"string"||t==="string")
+{if(e==="string"&&t==="
+string")return"string";
+throw new Error(`Can 
+not upcast ${e} with 
+${t}`)}return 
+zM[e][t]}function 
+Mm(e){return 
+fa(e,"int32")}function 
+QS(e){return 
+e!=null&&typeof e=="obj
+ect"&&"texture"in 
+e&&e.texture 
+instanceof 
+WebGLTexture}function 
+eN(e){return typeof GPU
+Buffer!="undefined"&&e!
+=null&&typeof e=="objec
+t"&&"buffer"in 
+e&&e.buffer instanceof 
+GPUBuffer}function _t(e
+,t){if(e.dtype===t.dtyp
+e)return[e,t];let n=fa(
+e.dtype,t.dtype);return
+[e.cast(n),t.cast(n)]}f
+unction tN(e,t){A(e.dty
+pe===t.dtype,()=>`The 
+dtypes of the 
+first(${e.dtype}) and 
+second(${t.dtype}) 
+input must 
+match`)}function 
+WM(e,t){return t.some(n
+=>n.id===e.id)}function
+ _v(e){let t=[];return 
+nN(e,t,new 
+Set),t}function nN(e,t,
+n){if(e==null)return;if
+(e instanceof Ce){t.pus
+h(e);return}if(!BM(e))r
+eturn;let a=e;for(let 
+r in a){let s=a[r];n.ha
+s(s)||(n.add(s),nN(s,t,
+n))}}function 
+BM(e){return Array.isAr
+ray(e)||typeof 
+e=="object"}function 
+ix(e){return 
+e.kernelName!=null}var 
+Yk=class{constructor(){
+this.registeredVariable
+s={},this.nextTapeNodeI
+d=0,this.numBytes=0,thi
+s.numTensors=0,this.num
+StringTensors=0,this.nu
+mDataBuffers=0,this.gra
+dientDepth=0,this.kerne
+lDepth=0,this.scopeStac
+k=[],this.numDataMovesS
+tack=[],this.nextScopeI
+d=0,this.tensorInfo=new
+ WeakMap,this.profiling
+=!1,this.activeProfile=
+{newBytes:0,newTensors:
+0,peakBytes:0,kernels:[
+],result:null,get 
+kernelNames(){return 
+Array.from(new Set(this
+.kernels.map(e=>e.name)
+))}}}dispose(){for(let 
+e in this.registeredVar
+iables)this.registeredV
+ariables[e].dispose()}}
+,Av=class Cx{constructo
+r(t){this.ENV=t,this.re
+gistry={},this.registry
+Factory={},this.pending
+BackendInitId=0,this.st
+ate=new Yk}async ready(
+){if(this.pendingBacken
+dInit!=null)return this
+.pendingBackendInit.the
+n(()=>{});if(this.backe
+ndInstance!=null)return
+;let t=this.getSortedBa
+ckends();for(let n=0;n<
+t.length;n++){let 
+a=t[n];if(await this.in
+itializeBackend(a).succ
+ess){await this.setBack
+end(a);return}}throw 
+new Error("Could not 
+initialize any 
+backends, all backend 
+initializations 
+failed.")}get backend()
+{if(this.pendingBackend
+Init!=null)throw new 
+Error(`Backend 
+'${this.backendName}' 
+has not yet been 
+initialized. Make sure 
+to await tf.ready() or 
+await tf.setBackend() 
+before calling other me
+thods`);if(this.backend
+Instance==null){let{nam
+e:t,asyncInit:n}=this.i
+nitializeBackendsAndRet
+urnBest();if(n)throw 
+new Error(`The highest 
+priority backend 
+'${t}' has not yet 
+been initialized. Make 
+sure to await 
+tf.ready() or await 
+tf.setBackend() before 
+calling other methods`)
+;this.setBackend(t)}ret
+urn this.backendInstanc
+e}backendNames(){return
+ Object.keys(this.regis
+tryFactory)}findBackend
+(t){if(!(t in 
+this.registry))if(t in 
+this.registryFactory){l
+et{asyncInit:n}=this.in
+itializeBackend(t);if(n
+)return null}else 
+return null;return this
+.registry[t]}findBacken
+dFactory(t){return t 
+in this.registryFactory
+?this.registryFactory[t
+].factory:null}register
+Backend(t,n,a=1){return
+ t in this.registryFact
+ory?(Zr(`${t} backend 
+was already 
+registered. Reusing 
+existing backend factor
+y.`),!1):(this.registry
+Factory[t]={factory:n,p
+riority:a},!0)}async se
+tBackend(t){if(this.reg
+istryFactory[t]==null)t
+hrow new 
+Error(`Backend name 
+'${t}' not found in reg
+istry`);if(this.backend
+Name=t,this.registry[t]
+==null){this.backendIns
+tance=null;let{success:
+n,asyncInit:a}=this.ini
+tializeBackend(t);if(!(
+a?await 
+n:n))return!1}return th
+is.backendInstance=this
+.registry[t],this.setup
+RegisteredKernels(),thi
+s.profiler=new EM(this.
+backendInstance),!0}set
+upRegisteredKernels(){j
+h(this.backendName).for
+Each(t=>{t.setupFunc!=n
+ull&&t.setupFunc(this.b
+ackendInstance)})}dispo
+seRegisteredKernels(t){
+jh(t).forEach(n=>{n.dis
+poseFunc!=null&&n.dispo
+seFunc(this.registry[t]
+)})}initializeBackend(t
+){let n=this.registryFa
+ctory[t];if(n==null)thr
+ow new Error(`Cannot 
+initialize backend 
+${t}, no registration 
+found.`);try{let a=n.fa
+ctory();if(a&&!(a 
+instanceof Fc)&&typeof 
+a.then=="function"){let
+ r=++this.pendingBacken
+dInitId,s=a.then(i=>r<t
+his.pendingBackendInitI
+d?!1:(this.registry[t]=
+i,this.pendingBackendIn
+it=null,!0)).catch(i=>(
+r<this.pendingBackendIn
+itId||(this.pendingBack
+endInit=null,Zr(`Initia
+lization of backend 
+${t} failed`),Zr(i.stac
+k||i.message)),!1));ret
+urn this.pendingBackend
+Init=s,{success:s,async
+Init:!0}}else return th
+is.registry[t]=a,{succe
+ss:!0,asyncInit:!1}}cat
+ch(a){return 
+Zr(`Initialization of 
+backend ${t} failed`),Z
+r(a.stack||a.message),{
+success:!1,asyncInit:!1
+}}}removeBackend(t){if(
+!(t in this.registryFac
+tory))throw new 
+Error(`${t} backend 
+not found in registry`)
+;this.backendName===t&&
+this.pendingBackendInit
+!=null&&this.pendingBac
+kendInitId++,t in this.
+registry&&(this.dispose
+RegisteredKernels(t),th
+is.registry[t].dispose(
+),delete this.registry[
+t]),delete this.registr
+yFactory[t],this.backen
+dName===t&&(this.pendin
+gBackendInit=null,this.
+backendName=null,this.b
+ackendInstance=null)}ge
+tSortedBackends(){if(Ob
+ject.keys(this.registry
+Factory).length===0)thr
+ow new Error("No 
+backend found in 
+registry.");return Obje
+ct.keys(this.registryFa
+ctory).sort((t,n)=>this
+.registryFactory[n].pri
+ority-this.registryFact
+ory[t].priority)}initia
+lizeBackendsAndReturnBe
+st(){let t=this.getSort
+edBackends();for(let n=
+0;n<t.length;n++){let a
+=t[n],{success:r,asyncI
+nit:s}=this.initializeB
+ackend(a);if(s||r)retur
+n{name:a,asyncInit:s}}t
+hrow new Error("Could 
+not initialize any 
+backends, all backend 
+initializations failed.
+")}moveData(t,n){let a=
+this.state.tensorInfo.g
+et(n),r=a.backend,s=thi
+s.readSync(n),i=r.refCo
+unt(n);r.disposeData(n,
+!0),a.backend=t,t.move(
+n,s,a.shape,a.dtype,i),
+this.shouldCheckForMemL
+eaks()&&this.state.numD
+ataMovesStack[this.stat
+e.numDataMovesStack.len
+gth-1]++}tidy(t,n){let 
+a=null;if(n==null){if(t
+ypeof 
+t!="function")throw 
+new Error("Please 
+provide a function to t
+idy()");n=t}else{if(typ
+eof t!="string"&&!(t 
+instanceof 
+String))throw new 
+Error("When calling 
+with two arguments, 
+the first argument to 
+tidy() must be a 
+string");if(typeof 
+n!="function")throw 
+new Error("When 
+calling with two 
+arguments, the 2nd 
+argument to tidy() 
+must be a 
+function");a=t}let 
+r;return this.scopedRun
+(()=>this.startScope(a)
+,()=>this.endScope(r),(
+)=>(r=n(),r instanceof 
+Promise&&console.error(
+"Cannot return a 
+Promise inside of tidy.
+"),r))}scopedRun(t,n,a)
+{t();try{let 
+r=a();return 
+n(),r}catch(r){throw n(
+),r}}nextTensorId(){ret
+urn Cx.nextTensorId++}n
+extVariableId(){return 
+Cx.nextVariableId++}clo
+ne(t){let n=P.runKernel
+(eo,{x:t}),a={x:t},r=i=
+>({x:()=>{let o="float3
+2",l={x:i},u={dtype:o};
+return P.runKernel(Mi,l
+,u)}}),s=[];return this
+.addTapeNode(this.state
+.activeScope.name,a,[n]
+,r,s,{}),n}runKernel(t,
+n,a){if(this.backendNam
+e==null&&this.backend,f
+c(t,this.backendName)==
+null)throw new 
+Error(`Kernel '${t}' 
+not registered for 
+backend '${this.backend
+Name}'`);return this.ru
+nKernelFunc({kernelName
+:t,inputs:n,attrs:a})}s
+houldCheckForMemLeaks()
+{return this.ENV.getBoo
+l("IS_TEST")}checkKerne
+lForMemLeak(t,n,a){let 
+r=this.backend.numDataI
+ds(),s=0;a.forEach(l=>{
+s+=l.dtype==="complex64
+"?3:1});let i=this.stat
+e.numDataMovesStack[thi
+s.state.numDataMovesSta
+ck.length-1],o=r-n-s-i;
+if(o>0)throw new 
+Error(`Backend 
+'${this.backendName}' 
+has an internal memory 
+leak (${o} data ids) 
+after running '${t}'`)}
+runKernelFunc(t){let n,
+a=[],r=this.isTapeOn(),
+s=this.state.numBytes,i
+=this.state.numTensors;
+this.shouldCheckForMemL
+eaks()&&this.state.numD
+ataMovesStack.push(0);l
+et o;this.backendName==
+null&&this.backend;let 
+l,u=ix(t)?t.kernelName:
+this.state.activeScope!
+=null?this.state.active
+Scope.name:"";if(ix(t))
+{let{kernelName:m,input
+s:f,attrs:g}=t;this.bac
+kendName==null&&this.ba
+ckend;let b=fc(m,this.b
+ackendName);A(b!=null,(
+)=>`Cannot find 
+registered kernel 
+'${m}' for backend '${t
+his.backendName}'`),o=(
+)=>{let y=this.backend.
+numDataIds();l=b.kernel
+Func({inputs:f,attrs:g,
+backend:this.backend});
+let x=Array.isArray(l)?
+l:[l];this.shouldCheckF
+orMemLeaks()&&this.chec
+kKernelForMemLeak(m,y,x
+);let v=x.map(I=>I.rank
+!=null?I:this.makeTenso
+rFromTensorInfo(I));if(
+r){let I=this.getTensor
+sForGradient(m,f,v);a=t
+his.saveTensorsForBackw
+ardMode(I)}return v}}el
+se{let{forwardFunc:m}=t
+,f=g=>{r&&(a=g.map(b=>t
+his.keep(this.clone(b))
+))};o=()=>{let g=this.b
+ackend.numDataIds();l=t
+his.tidy(()=>m(this.bac
+kend,f));let b=Array.is
+Array(l)?l:[l];return t
+his.shouldCheckForMemLe
+aks()&&this.checkKernel
+ForMemLeak(u,g,b),b}}le
+t{inputs:p,attrs:d}=t,c
+=ix(t)?null:t.backwards
+Func,h;return this.scop
+edRun(()=>this.state.ke
+rnelDepth++,()=>this.st
+ate.kernelDepth--,()=>{
+!this.ENV.getBool("DEBU
+G")&&!this.state.profil
+ing?n=o():(h=this.profi
+ler.profileKernel(u,p,(
+)=>o()),this.ENV.getBoo
+l("DEBUG")&&this.profil
+er.logKernelProfile(h),
+n=h.outputs)}),r&&this.
+addTapeNode(u,p,n,c,a,d
+),this.state.profiling&
+&this.state.activeProfi
+le.kernels.push({name:u
+,bytesAdded:this.state.
+numBytes-s,totalBytesSn
+apshot:this.state.numBy
+tes,tensorsAdded:this.s
+tate.numTensors-i,total
+TensorsSnapshot:this.st
+ate.numTensors,inputSha
+pes:Object.keys(p).map(
+m=>p[m]!=null?p[m].shap
+e:null),outputShapes:n.
+map(m=>m.shape),kernelT
+imeMs:h.timeMs,extraInf
+o:h.extraInfo}),Array.i
+sArray(l)?n:n[0]}saveTe
+nsorsForBackwardMode(t)
+{return t.map(n=>this.k
+eep(this.clone(n)))}get
+TensorsForGradient(t,n,
+a){let r=vx(t);if(r!=nu
+ll){let s=r.inputsToSav
+e||[],i=r.outputsToSave
+||[],o;r.saveAllInputs?
+(A(Array.isArray(n),()=
+>"saveAllInputs is 
+true, expected inputs 
+to be an array."),o=Obj
+ect.keys(n).map(u=>n[u]
+)):o=s.map(u=>n[u]);let
+ l=a.filter((u,p)=>i[p]
+);return o.concat(l)}re
+turn[]}makeTensor(t,n,a
+,r){if(t==null)throw 
+new Error("Values 
+passed to 
+engine.makeTensor() 
+are null");a=a||"float3
+2",r=r||this.backend;le
+t s=t;a==="string"&&Jr(
+t[0])&&(s=t.map(l=>nd(l
+)));let 
+i=r.write(s,n,a),o=new 
+Ce(n,a,i,this.nextTenso
+rId());if(this.trackTen
+sor(o,r),a==="string"){
+let l=this.state.tensor
+Info.get(i),u=zS(s);thi
+s.state.numBytes+=u-l.b
+ytes,l.bytes=u}return o
+}makeTensorFromDataId(t
+,n,a,r){a=a||"float32";
+let s={dataId:t,shape:n
+,dtype:a};return this.m
+akeTensorFromTensorInfo
+(s,r)}makeTensorFromTen
+sorInfo(t,n){let{dataId
+:a,shape:r,dtype:s}=t,i
+=new Ce(r,s,a,this.next
+TensorId());return this
+.trackTensor(i,n),i}mak
+eVariable(t,n=!0,a,r){a
+=a||this.nextVariableId
+().toString(),r!=null&&
+r!==t.dtype&&(t=t.cast(
+r));let s=new os(t,n,a,
+this.nextTensorId());if
+(this.state.registeredV
+ariables[s.name]!=null)
+throw new 
+Error(`Variable with 
+name ${s.name} was 
+already 
+registered`);return thi
+s.state.registeredVaria
+bles[s.name]=s,this.inc
+Ref(s,this.backend),s}t
+rackTensor(t,n){this.st
+ate.numTensors++,t.dtyp
+e==="string"&&this.stat
+e.numStringTensors++;le
+t a=0;t.dtype!=="comple
+x64"&&t.dtype!=="string
+"&&(a=t.size*Uh(t.dtype
+)),this.state.numBytes+
+=a,this.state.tensorInf
+o.has(t.dataId)||(this.
+state.numDataBuffers++,
+this.state.tensorInfo.s
+et(t.dataId,{backend:n|
+|this.backend,dtype:t.d
+type,shape:t.shape,byte
+s:a})),t instanceof os|
+|this.track(t)}incRef(t
+,n){this.trackTensor(t,
+n),this.backend.incRef(
+t.dataId)}removeDataId(
+t,n){this.state.tensorI
+nfo.has(t)&&this.state.
+tensorInfo.get(t).backe
+nd===n&&(this.state.ten
+sorInfo.delete(t),this.
+state.numDataBuffers--)
+}disposeTensor(t){if(!t
+his.state.tensorInfo.ha
+s(t.dataId))return;let 
+n=this.state.tensorInfo
+.get(t.dataId);if(this.
+state.numTensors--,t.dt
+ype==="string"&&(this.s
+tate.numStringTensors--
+,this.state.numBytes-=n
+.bytes),t.dtype!=="comp
+lex64"&&t.dtype!=="stri
+ng"){let a=t.size*Uh(t.
+dtype);this.state.numBy
+tes-=a}n.backend.dispos
+eData(t.dataId)&&this.r
+emoveDataId(t.dataId,n.
+backend)}disposeVariabl
+es(){for(let t in this.
+state.registeredVariabl
+es){let n=this.state.re
+gisteredVariables[t];th
+is.disposeVariable(n)}}
+disposeVariable(t){this
+.disposeTensor(t),this.
+state.registeredVariabl
+es[t.name]!=null&&delet
+e this.state.registered
+Variables[t.name]}memor
+y(){let t=this.backend.
+memory();return t.numTe
+nsors=this.state.numTen
+sors,t.numDataBuffers=t
+his.state.numDataBuffer
+s,t.numBytes=this.state
+.numBytes,this.state.nu
+mStringTensors>0&&(t.un
+reliable=!0,t.reasons==
+null&&(t.reasons=[]),t.
+reasons.push("Memory 
+usage by string 
+tensors is approximate 
+(2 bytes per 
+character)")),t}async p
+rofile(t){this.state.pr
+ofiling=!0;let n=this.s
+tate.numBytes,a=this.st
+ate.numTensors;this.sta
+te.activeProfile.kernel
+s=[],this.state.activeP
+rofile.result=await t()
+,this.state.profiling=!
+1,this.state.activeProf
+ile.peakBytes=Math.max(
+...this.state.activePro
+file.kernels.map(r=>r.t
+otalBytesSnapshot)),thi
+s.state.activeProfile.n
+ewBytes=this.state.numB
+ytes-n,this.state.activ
+eProfile.newTensors=thi
+s.state.numTensors-a;fo
+r(let r of this.state.a
+ctiveProfile.kernels)r.
+kernelTimeMs=await r.ke
+rnelTimeMs,r.extraInfo=
+await 
+r.extraInfo;return this
+.state.activeProfile}is
+TapeOn(){return this.st
+ate.gradientDepth>0&&th
+is.state.kernelDepth===
+0}addTapeNode(t,n,a,r,s
+,i){let o={id:this.stat
+e.nextTapeNodeId++,kern
+elName:t,inputs:n,outpu
+ts:a,saved:s},l=vx(t);l
+!=null&&(r=l.gradFunc),
+r!=null&&(o.gradient=u=
+>(u=u.map((p,d)=>{if(p=
+=null){let c=a[d],h=xm(
+c.size,c.dtype);return 
+this.makeTensor(h,c.sha
+pe,c.dtype)}return p}),
+r(u.length>1?u:u[0],s,i
+))),this.state.activeTa
+pe.push(o)}keep(t){retu
+rn t.kept=!0,t}startTap
+e(){this.state.gradient
+Depth===0&&(this.state.
+activeTape=[]),this.sta
+te.gradientDepth++}endT
+ape(){this.state.gradie
+ntDepth--}startScope(t)
+{let n={track:[],name:"
+unnamed scope",id:this.
+state.nextScopeId++};t&
+&(n.name=t),this.state.
+scopeStack.push(n),this
+.state.activeScope=n}en
+dScope(t){let 
+n=_v(t),a=new Set(n.map
+(s=>s.id));for(let s=0;
+s<this.state.activeScop
+e.track.length;s++){let
+ i=this.state.activeSco
+pe.track[s];!i.kept&&!a
+.has(i.id)&&i.dispose()
+}let r=this.state.scope
+Stack.pop();this.state.
+activeScope=this.state.
+scopeStack.length===0?n
+ull:this.state.scopeSta
+ck[this.state.scopeStac
+k.length-1],n.forEach(s
+=>{!s.kept&&s.scopeId==
+=r.id&&this.track(s)})}
+gradients(t,n,a,r=!1){i
+f(A(n.length>0,()=>"gra
+dients() received an 
+empty list of xs."),a!=
+null&&a.dtype!=="float3
+2")throw new Error(`dy 
+must have 'float32' 
+dtype, but has 
+'${a.dtype}'`);let s=th
+is.scopedRun(()=>this.s
+tartTape(),()=>this.end
+Tape(),()=>this.tidy("f
+orward",t));A(s 
+instanceof Ce,()=>"The 
+result y returned by 
+f() must be a 
+tensor.");let i=FM(this
+.state.activeTape,n,s);
+if(!r&&i.length===0&&n.
+length>0)throw new 
+Error("Cannot compute 
+gradient of y=f(x) 
+with respect to x. 
+Make sure that the f 
+you passed encloses 
+all operations that 
+lead from x to 
+y.");return this.tidy("
+backward",()=>{let o={}
+;o[s.id]=a==null?VM(s.s
+hape):a,$M(o,i,u=>this.
+tidy(u),UM);let l=n.map
+(u=>o[u.id]);return thi
+s.state.gradientDepth==
+=0&&(this.state.activeT
+ape.forEach(u=>{for(let
+ p of u.saved)p.dispose
+()}),this.state.activeT
+ape=null),{value:s,grad
+s:l}})}customGrad(t){re
+turn A(ss(t),()=>"The 
+f passed in 
+customGrad(f) must be 
+a function."),(...n)=>{
+A(n.every(o=>o 
+instanceof 
+Ce),()=>"The args 
+passed in 
+customGrad(f)(x1, 
+x2,...) must all be 
+tensors");let a,r={};n.
+forEach((o,l)=>{r[l]=o}
+);let s=(o,l)=>(a=t(...
+n,l),A(a.value 
+instanceof Ce,()=>"The 
+function f passed in 
+customGrad(f) must 
+return an object where 
+`obj.value` is a tensor
+"),A(ss(a.gradFunc),()=
+>"The function f 
+passed in 
+customGrad(f) must 
+return an object where 
+`obj.gradFunc` is a fun
+ction."),a.value),i=(o,
+l)=>{let u=a.gradFunc(o
+,l),p=Array.isArray(u)?
+u:[u];A(p.length===n.le
+ngth,()=>"The function 
+f passed in 
+customGrad(f) must 
+return an object where 
+`obj.gradFunc` is a 
+function that returns 
+the same number of 
+tensors as inputs 
+passed to f(...)."),A(p
+.every(c=>c instanceof 
+Ce),()=>"The function 
+f passed in 
+customGrad(f) must 
+return an object where 
+`obj.gradFunc` is a 
+function that returns 
+a list of only 
+tensors.");let 
+d={};return p.forEach((
+c,h)=>{d[h]=()=>c}),d};
+return this.runKernelFu
+nc({forwardFunc:s,backw
+ardsFunc:i,inputs:r})}}
+readSync(t){return this
+.state.tensorInfo.get(t
+).backend.readSync(t)}r
+ead(t){return this.stat
+e.tensorInfo.get(t).bac
+kend.read(t)}readToGPU(
+t,n){return this.state.
+tensorInfo.get(t).backe
+nd.readToGPU(t,n)}async
+ time(t){let 
+n=gc(),a=await this.bac
+kend.time(t);return a.w
+allMs=gc()-n,a}track(t)
+{return this.state.acti
+veScope!=null&&(t.scope
+Id=this.state.activeSco
+pe.id,this.state.active
+Scope.track.push(t)),t}
+get registeredVariables
+(){return this.state.re
+gisteredVariables}reset
+(){this.pendingBackendI
+nitId++,this.state.disp
+ose(),this.ENV.reset(),
+this.state=new 
+Yk;for(let t in this.re
+gistry)this.disposeRegi
+steredKernels(t),this.r
+egistry[t].dispose(),de
+lete this.registry[t];t
+his.backendName=null,th
+is.backendInstance=null
+,this.pendingBackendIni
+t=null}};Av.nextTensorI
+d=0;Av.nextVariableId=0
+;function VM(e){let t=N
+v(ot(e),"float32");retu
+rn P.makeTensor(t,e,"fl
+oat32")}function 
+aN(){let e=GS();if(e._t
+fengine==null){let 
+t=new 
+US(e);e._tfengine=new 
+Av(t)}return pM(e._tfen
+gine.ENV),OM(()=>e._tfe
+ngine),e._tfengine}var 
+P=aN();function 
+UM(e,t){let 
+n={a:e,b:t};return 
+P.runKernel(vs,n)}var a
+d={};_e(ad,{isBrowser:(
+)=>rN,isMobile:()=>jM,m
+ockIsMobile:()=>HM});fu
+nction GM(){return 
+typeof navigator!="unde
+fined"&&navigator!=null
+}var Ex;function 
+HM(e){Ex=e}function 
+jM(e){if(Ex!==void 
+0)return Ex;if(e||GM())
+{if(e||(e=navigator),e.
+product==="ReactNative"
+)return!0;let t=e.userA
+gent||e.vendor||(typeof
+ window!="undefined"?wi
+ndow.opera:"");if(!t){l
+et n=e;return n.userAge
+ntData&&n.userAgentData
+.mobile}return/(android
+|bb\d+|meego).+mobile|a
+vantgo|bada\/|blackberr
+y|blazer|compal|elaine|
+fennec|hiptop|iemobile|
+ip(hone|od)|iris|kindle
+|lge |maemo|midp|mmp|mo
+bile.+firefox|netfront|
+opera m(ob|in)i|palm( o
+s)?|phone|p(ixi|re)\/|p
+lucker|pocket|psp|serie
+s(4|6)0|symbian|treo|up
+\.(browser|link)|vodafo
+ne|wap|windows ce|xda|x
+iino/i.test(t)||/1207|6
+310|6590|3gso|4thp|50[1
+-6]i|770s|802s|a wa|aba
+c|ac(er|oo|s\-)|ai(ko|r
+n)|al(av|ca|co)|amoi|an
+(ex|ny|yw)|aptu|ar(ch|g
+o)|as(te|us)|attw|au(di
+|\-m|r |s )|avan|be(ck|
+ll|nq)|bi(lb|rd)|bl(ac|
+az)|br(e|v)w|bumb|bw\-(
+n|u)|c55\/|capi|ccwa|cd
+m\-|cell|chtm|cldc|cmd\
+-|co(mp|nd)|craw|da(it|
+ll|ng)|dbte|dc\-s|devi|
+dica|dmob|do(c|p)o|ds(1
+2|\-d)|el(49|ai)|em(l2|
+ul)|er(ic|k0)|esl8|ez([
+4-7]0|os|wa|ze)|fetc|fl
+y(\-|_)|g1 u|g560|gene|
+gf\-5|g\-mo|go(\.w|od)|
+gr(ad|un)|haie|hcit|hd\
+-(m|p|t)|hei\-|hi(pt|ta
+)|hp( 
+i|ip)|hs\-c|ht(c(\-| |_
+|a|g|p|s|t)|tp)|hu(aw|t
+c)|i\-(20|go|ma)|i230|i
+ac( |\-|\/)|ibro|idea|i
+g01|ikom|im1k|inno|ipaq
+|iris|ja(t|v)a|jbro|jem
+u|jigs|kddi|keji|kgt( 
+|\/)|klon|kpt |kwc\-|ky
+o(c|k)|le(no|xi)|lg( g|
+\/(k|l|u)|50|54|\-[a-w]
+)|libw|lynx|m1\-w|m3ga|
+m50\/|ma(te|ui|xo)|mc(0
+1|21|ca)|m\-cr|me(rc|ri
+)|mi(o8|oa|ts)|mmef|mo(
+01|02|bi|de|do|t(\-| 
+|o|v)|zz)|mt(50|p1|v )|
+mwbp|mywa|n10[0-2]|n20[
+2-3]|n30(0|2)|n50(0|2|5
+)|n7(0(0|1)|10)|ne((c|m
+)\-|on|tf|wf|wg|wt)|nok
+(6|i)|nzph|o2im|op(ti|w
+v)|oran|owg1|p800|pan(a
+|d|t)|pdxg|pg(13|\-([1-
+8]|c))|phil|pire|pl(ay|
+uc)|pn\-2|po(ck|rt|se)|
+prox|psio|pt\-g|qa\-a|q
+c(07|12|21|32|60|\-[2-7
+]|i\-)|qtek|r380|r600|r
+aks|rim9|ro(ve|zo)|s55\
+/|sa(ge|ma|mm|ms|ny|va)
+|sc(01|h\-|oo|p\-)|sdk\
+/|se(c(\-|0|1)|47|mc|nd
+|ri)|sgh\-|shar|sie(\-|
+m)|sk\-0|sl(45|id)|sm(a
+l|ar|b3|it|t5)|so(ft|ny
+)|sp(01|h\-|v\-|v )|sy(
+01|mb)|t2(18|50)|t6(00|
+10|18)|ta(gt|lk)|tcl\-|
+tdg\-|tel(i|m)|tim\-|t\
+-mo|to(pl|sh)|ts(70|m\-
+|m3|m5)|tx\-9|up(\.b|g1
+|si)|utst|v400|v750|ver
+i|vi(rg|te)|vk(40|5[0-3
+]|\-v)|vm40|voda|vulc|v
+x(52|53|60|61|70|80|81|
+83|85|98)|w3c(\-| 
+)|webc|whit|wi(g |nc|nw
+)|wmlb|wonu|x700|yas\-|
+your|zeto|zte\-/i.test(
+t.substr(0,4))}return!1
+}function rN(){return 
+typeof window!="undefin
+ed"&&window.document!=n
+ull||typeof WorkerGloba
+lScope!="undefined"}var
+ Wn=G();Wn.registerFlag
+("DEBUG",()=>!1,e=>{e&&
+console.warn("Debugging
+ mode is ON. The 
+output of every math 
+call will be 
+downloaded to CPU and 
+checked for NaNs. This 
+significantly impacts p
+erformance.")});Wn.regi
+sterFlag("IS_BROWSER",(
+)=>rN());Wn.registerFla
+g("IS_NODE",()=>typeof 
+process!="undefined"&&t
+ypeof process.versions!
+="undefined"&&typeof pr
+ocess.versions.node!="u
+ndefined");Wn.registerF
+lag("IS_CHROME",()=>typ
+eof navigator!="undefin
+ed"&&navigator!=null&&n
+avigator.userAgent!=nul
+l&&/Chrome/.test(naviga
+tor.userAgent)&&/Google
+ Inc/.test(navigator.ve
+ndor));Wn.registerFlag(
+"IS_SAFARI",()=>typeof 
+navigator!="undefined"&
+&navigator!=null&&navig
+ator.userAgent!=null&&/
+Safari/.test(navigator.
+userAgent)&&/Apple/.tes
+t(navigator.vendor));Wn
+.registerFlag("PROD",()
+=>!1);Wn.registerFlag("
+TENSORLIKE_CHECK_SHAPE_
+CONSISTENCY",()=>Wn.get
+Bool("DEBUG"));Wn.regis
+terFlag("DEPRECATION_WA
+RNINGS_ENABLED",()=>!0)
+;Wn.registerFlag("IS_TE
+ST",()=>!1);Wn.register
+Flag("CHECK_COMPUTATION
+_FOR_ERRORS",()=>Wn.get
+Bool("DEBUG"));Wn.regis
+terFlag("WRAP_TO_IMAGEB
+ITMAP",()=>!1);Wn.regis
+terFlag("CANVAS2D_WILL_
+READ_FREQUENTLY_FOR_GPU
+",()=>!1);Wn.registerFl
+ag("USE_SETTIMEOUTCUSTO
+M",()=>!1);function 
+lr(e,t){let 
+n=e;if(en(e))return t==
+="string"?[]:[e.length]
+;if(QS(e)){let r=e.chan
+nels||"RGBA";return[e.h
+eight,e.width*r.length]
+}else if(eN(e))return[e
+.buffer.size/(t==null?4
+:Uh(t))];if(!Array.isAr
+ray(e))return[];let a=[
+];for(;Array.isArray(n)
+||en(n)&&t!=="string";)
+a.push(n.length),n=n[0]
+;return Array.isArray(e
+)&&G().getBool("TENSORL
+IKE_CHECK_SHAPE_CONSIST
+ENCY")&&sN(e,a,[]),a}fu
+nction sN(e,t,n){if(n=n
+||[],!Array.isArray(e)&
+&!en(e)){A(t.length===0
+,()=>`Element 
+arr[${n.join("][")}] 
+is a primitive, but 
+should be an 
+array/TypedArray of 
+${t[0]} elements`);retu
+rn}A(t.length>0,()=>`El
+ement 
+arr[${n.join("][")}] 
+should be a primitive, 
+but is an array of 
+${e.length} elements`),
+A(e.length===t[0],()=>`
+Element 
+arr[${n.join("][")}] 
+should have ${t[0]} 
+elements, but has 
+${e.length} 
+elements`);let 
+a=t.slice(1);for(let r=
+0;r<e.length;++r)sN(e[r
+],a,n.concat(r))}functi
+on Zk(e,t,n,a){if(e!=="
+string_or_numeric"){if(
+e==null)throw new 
+Error("Expected dtype 
+cannot be null.");if(e!
+=="numeric"&&e!==t||e==
+="numeric"&&t==="string
+")throw new 
+Error(`Argument '${n}' 
+passed to '${a}' must 
+be ${e} tensor, but 
+got ${t} 
+tensor`)}}function E(e,
+t,n,a="numeric"){if(e 
+instanceof Q())return Z
+k(a,e.dtype,t,n),e;let 
+r=$c(e);if(r!=="string"
+&&["bool","int32","floa
+t32"].indexOf(a)>=0&&(r
+=a),Zk(a,r,t,n),e==null
+||!en(e)&&!Array.isArra
+y(e)&&typeof 
+e!="number"&&typeof 
+e!="boolean"&&typeof 
+e!="string"){let o=e==n
+ull?"null":e.constructo
+r.name;throw new 
+Error(`Argument '${t}' 
+passed to '${n}' must 
+be a Tensor or 
+TensorLike, but got 
+'${o}'`)}let s=lr(e,r);
+!en(e)&&!Array.isArray(
+e)&&(e=[e]);let i=r!=="
+string"?Rm(e,r):is(e,[]
+,!0);return P.makeTenso
+r(i,s,r)}function bc(e,
+t,n,a="numeric"){if(!Ar
+ray.isArray(e))throw 
+new Error(`Argument 
+${t} passed to ${n} 
+must be a \`Tensor[]\` 
+or \`TensorLike[]\``);r
+eturn e.map((r,s)=>E(r,
+`${t}[${s}]`,n,a))}var 
+Fv="__op";function 
+L(e){let t=Object.keys(
+e);if(t.length!==1)thro
+w new Error(`Please 
+provide an object with 
+a single key 
+(operation name) 
+mapping to a function. 
+Got an object with 
+${t.length} 
+keys.`);let n=t[0],a=e[
+n];n.endsWith("_")&&(n=
+n.substring(0,n.length-
+1)),n=n+Fv;let r=(...s)
+=>{P.startScope(n);try{
+let i=a(...s);return vm
+(i)&&console.error("Can
+not return a Promise 
+inside of tidy."),P.end
+Scope(i),i}catch(i){thr
+ow P.endScope(null),i}}
+;return Object.definePr
+operty(r,"name",{value:
+n,configurable:!0}),r}f
+unction qM(e,t){let n=E
+(e,"real","complex"),a=
+E(t,"imag","complex");N
+n(n.shape,a.shape,`real
+ and imag shapes, 
+${n.shape} and 
+${a.shape}, must match 
+in call to 
+tf.complex().`);let r={
+real:n,imag:a};return 
+P.runKernel(wm,r)}var _
+r=L({complex_:qM});func
+tion Ss(e,t,n,a){if(a==
+null)a=$c(e);else if(a=
+=="complex64")throw 
+new Error("Cannot 
+construct a complex64 
+tensor directly. 
+Please use 
+tf.complex(real, imag).
+");if(eN(e)||QS(e)){if(
+a!=="float32"&&a!=="int
+32")throw new 
+Error(`Creating tensor 
+from GPU data only 
+supports 
+'float32'|'int32' 
+dtype, while the dtype 
+is ${a}.`);return P.bac
+kend.createTensorFromGP
+UData(e,t||n,a)}if(!en(
+e)&&!Array.isArray(e)&&
+typeof 
+e!="number"&&typeof 
+e!="boolean"&&typeof 
+e!="string")throw new 
+Error("values passed 
+to tensor(values) must 
+be a 
+number/boolean/string 
+or an array of numbers/
+booleans/strings, or a 
+TypedArray");if(t!=null
+){na(t);let r=ot(t),s=o
+t(n);A(r===s,()=>`Based
+ on the provided 
+shape, [${t}], the 
+tensor should have 
+${r} values but has 
+${s}`);for(let i=0;i<n.
+length;++i){let o=n[i],
+l=i===n.length-1?o!==ot
+(t.slice(i)):!0;A(n[i]=
+==t[i]||!l,()=>`Error 
+creating a new Tensor. 
+Inferred shape (${n}) 
+does not match the 
+provided shape (${t}). 
+`)}}return!en(e)&&!Arra
+y.isArray(e)&&(e=[e]),t
+=t||n,e=a!=="string"?Rm
+(e,a):is(e,[],!0),P.mak
+eTensor(e,t,a)}function
+ bn(e,t,n){let 
+a=lr(e,n);return 
+Ss(e,t,a,n)}var ui={flo
+at32:4,float16:2,int32:
+4,uint16:2,uint8:1,bool
+:1,complex64:8},Fr=clas
+s iN{static 
+join(t){return new iN(t
+).slice()}constructor(t
+){if(this.shards=[],thi
+s.previousShardIndex=0,
+t==null||(t instanceof 
+Array||(t=[t]),t=t.map(
+a=>en(a)?a.buffer:a),t.
+length===0))return;this
+.bufferUniformSize=t[0]
+.byteLength;let 
+n=0;for(let a=0;a<t.len
+gth;a++){let r=t[a];a!=
+=t.length-1&&r.byteLeng
+th!==this.bufferUniform
+Size&&(this.bufferUnifo
+rmSize=void 0);let s=n+
+r.byteLength;this.shard
+s.push({buffer:r,start:
+n,end:s}),n=s}this.shar
+ds.length===0&&(this.by
+teLength=0),this.byteLe
+ngth=this.shards[this.s
+hards.length-1].end}sli
+ce(t=0,n=this.byteLengt
+h){if(this.shards.lengt
+h===0)return new ArrayB
+uffer(0);if(t=isNaN(Num
+ber(t))?0:t,n=isNaN(Num
+ber(n))?0:n,t=Math.max(
+0,t),n=Math.min(this.by
+teLength,n),n<=t)return
+ new 
+ArrayBuffer(0);let a=th
+is.findShardForByte(t);
+if(a===-1)throw new 
+Error(`Could not find 
+start shard for byte 
+${t}`);let r=n-t,s=new 
+ArrayBuffer(r),i=new Ui
+nt8Array(s),o=0;for(let
+ l=a;l<this.shards.leng
+th;l++){let u=this.shar
+ds[l],p=t+o-u.start,d=o
+,c=Math.min(n,u.end)-u.
+start,h=new Uint8Array(
+u.buffer,p,c-p);if(i.se
+t(h,d),o+=h.length,n<u.
+end)break}return s}find
+ShardForByte(t){if(this
+.shards.length===0||t<0
+||t>=this.byteLength)re
+turn-1;if(this.bufferUn
+iformSize!=null)return 
+this.previousShardIndex
+=Math.floor(t/this.buff
+erUniformSize),this.pre
+viousShardIndex;functio
+n n(r){return t<r.start
+?-1:t>=r.end?1:0}if(n(t
+his.shards[this.previou
+sShardIndex])===0)retur
+n this.previousShardInd
+ex;let a=KM(this.shards
+,n);return a===-1?-1:(t
+his.previousShardIndex=
+a,this.previousShardInd
+ex)}};function 
+KM(e,t){let n=0,a=e.len
+gth;for(;n<=a;){let r=M
+ath.floor((a-n)/2)+n,s=
+t(e[r]);if(s===0)return
+ r;s<0?a=r:n=r+1}return
+-1}function XM(){G().se
+t("PROD",!0)}function Y
+M(){G().set("DEBUG",!0)
+}function ZM(){G().set(
+"DEPRECATION_WARNINGS_E
+NABLED",!1),console.war
+n("TensorFlow.js 
+deprecation warnings 
+have been 
+disabled.")}function $v
+(e){G().getBool("DEPREC
+ATION_WARNINGS_ENABLED"
+)&&console.warn(e+" 
+You can disable 
+deprecation warnings 
+with tf.disableDeprecat
+ionWarnings().")}LM($v)
+;function JM(){P.dispos
+eVariables()}function 
+Ta(){return P}function 
+Kh(){return 
+P.memory()}function 
+QM(e){return 
+P.profile(e)}function 
+O(e,t){return 
+P.tidy(e,t)}function Ee
+(e){_v(e).forEach(t=>t.
+dispose())}function 
+Ht(e){return 
+P.keep(e)}function 
+eO(e){return 
+P.time(e)}function 
+tO(e){return P.setBacke
+nd(e)}function 
+nO(){return 
+P.ready()}function 
+oN(){return 
+P.backendName}function 
+aO(e){P.removeBackend(e
+)}function 
+rO(e){return P.findBack
+end(e)}function 
+sO(e){return P.findBack
+endFactory(e)}function 
+Om(e,t,n=1){return P.re
+gisterBackend(e,t,n)}fu
+nction Dv(){return 
+P.backend}function iO(e
+,t){G().setPlatform(e,t
+)}var ls=4;async 
+function oO(e,t){let n=
+[],a=[],r=Array.isArray
+(e)?e.map(i=>i.name):Ob
+ject.keys(e);for(let i=
+0;i<r.length;++i){let o
+=r[i],l=Array.isArray(e
+)?e[i].tensor:e[o];if(l
+.dtype!=="float32"&&l.d
+type!=="int32"&&l.dtype
+!=="bool"&&l.dtype!=="s
+tring"&&l.dtype!=="comp
+lex64")throw new 
+Error(`Unsupported 
+dtype in weight 
+'${o}': 
+${l.dtype}`);let u={nam
+e:o,shape:l.shape,dtype
+:l.dtype};if(l.dtype===
+"string"){let p=new 
+Promise(async d=>{let 
+c=await l.bytes(),h=c.r
+educe((g,b)=>g+b.length
+,0)+ls*c.length,m=new U
+int8Array(h),f=0;for(le
+t g=0;g<c.length;g++){l
+et b=c[g],y=new 
+Uint8Array(new Uint32Ar
+ray([b.length]).buffer)
+;m.set(y,f),f+=ls,m.set
+(b,f),f+=b.length}d(m)}
+);a.push(p)}else a.push
+(l.data());t!=null&&(u.
+group=t),n.push(u)}let 
+s=await Promise.all(a);
+return{data:pO(s),specs
+:n}}function 
+lN(e,t){let n=new 
+Fr(e),a={},r=0;for(let 
+s of t){let i=lO(s,(o,l
+)=>n.slice(r+o,r+l));a[
+s.name]=uN(s,n.slice(r,
+r+i)),r+=i}return 
+a}function lO(e,t){let 
+n=ot(e.shape),a;if("qua
+ntization"in e){let r=e
+.quantization;a=ui[r.dt
+ype]}else if(e.dtype===
+"string"){let 
+r=0;for(let 
+s=0;s<n;s++)r+=ls+new U
+int32Array(t(r,r+ls))[0
+];return r}else 
+a=ui[e.dtype];return 
+n*a}async function 
+uO(e,t){let n=ot(e.shap
+e),a;if("quantization"i
+n e){let r=e.quantizati
+on;a=ui[r.dtype]}else i
+f(e.dtype==="string"){l
+et r=0;for(let 
+s=0;s<n;s++)r+=ls+new 
+Uint32Array(await 
+t(r,r+ls))[0];return 
+r}else 
+a=ui[e.dtype];return 
+n*a}function 
+uN(e,t){let n=e.name,a=
+e.dtype,r=e.shape,s=ot(
+r),i,o=0;if("quantizati
+on"in e){let l=e.quanti
+zation;if(l.dtype==="ui
+nt8"||l.dtype==="uint16
+"){if(!("min"in 
+l&&"scale"in l))throw 
+new Error(`Weight 
+${e.name} with 
+quantization 
+${l.dtype} doesn't 
+have corresponding 
+metadata min and 
+scale.`)}else if(l.dtyp
+e==="float16"){if(a!=="
+float32")throw new 
+Error(`Weight 
+${e.name} is quantized 
+with ${l.dtype} which 
+only supports weights 
+of type float32 not 
+${a}.`)}else throw new 
+Error(`Weight 
+${e.name} has unknown 
+quantization dtype 
+${l.dtype}. Supported 
+quantization dtypes 
+are: 'uint8', 
+'uint16', and 
+'float16'.`);let u=ui[l
+.dtype],p=l.dtype==="ui
+nt8"?new 
+Uint8Array(t):new Uint1
+6Array(t);if(a==="float
+32")if(l.dtype==="uint8
+"||l.dtype==="uint16"){
+i=new Float32Array(p.le
+ngth);for(let d=0;d<p.l
+ength;d++){let c=p[d];i
+[d]=c*l.scale+l.min}}el
+se if(l.dtype==="float1
+6")i=bO()(p);else 
+throw new 
+Error(`Unsupported 
+quantization type 
+${l.dtype} for weight 
+type float32.`);else if
+(a==="int32"){if(l.dtyp
+e!=="uint8"&&l.dtype!==
+"uint16")throw new 
+Error(`Unsupported 
+quantization type 
+${l.dtype} for weight 
+type int32.`);i=new Int
+32Array(p.length);for(l
+et d=0;d<p.length;d++){
+let c=p[d];i[d]=Math.ro
+und(c*l.scale+l.min)}}e
+lse throw new 
+Error(`Unsupported 
+dtype in weight 
+'${n}': 
+${a}`);o+=s*u}else 
+if(a==="string"){let l=
+ot(e.shape);i=[];for(le
+t u=0;u<l;u++){let 
+p=new Uint32Array(t.sli
+ce(o,o+ls))[0];o+=ls;le
+t d=new Uint8Array(t.sl
+ice(o,o+p));i.push(d),o
++=p}}else{let l=ui[a];i
+f(a==="float32")i=new 
+Float32Array(t);else 
+if(a==="int32")i=new 
+Int32Array(t);else 
+if(a==="bool")i=new 
+Uint8Array(t);else if(a
+==="complex64"){i=new 
+Float32Array(t);let 
+u=new Float32Array(i.le
+ngth/2),p=new Float32Ar
+ray(i.length/2);for(let
+ m=0;m<u.length;m++)u[m
+]=i[m*2],p[m]=i[m*2+1];
+let d=bn(u,r,"float32")
+,c=bn(p,r,"float32"),h=
+_r(d,c);return d.dispos
+e(),c.dispose(),h}else 
+throw new 
+Error(`Unsupported 
+dtype in weight 
+'${n}': 
+${a}`);o+=s*l}return 
+bn(i,r,a)}async 
+function Jk(e,t,n){let 
+a=new Uint8Array(t);for
+(;a.byteLength<n;){let{
+done:r,value:s}=await e
+.read();if(r&&s==null){
+let 
+o=n-a.byteLength;throw 
+new Error(`Reader is 
+done but ${o} bytes 
+are still 
+expected`)}let i=new Ui
+nt8Array(a.length+s.byt
+eLength);i.set(a,0),i.s
+et(new Uint8Array(s),a.
+length),a=i}return 
+a.buffer}async 
+function pN(e,t){let n=
+{},a=e.getReader(),r=ne
+w 
+ArrayBuffer(0);for(let 
+s of t){let i=await uO(
+s,async(u,p)=>(r=await 
+Jk(a,r,p),r.slice(u,p))
+);r=await 
+Jk(a,r,i);let o=r.slice
+(0,i);r=r.slice(i);let 
+l=uN(s,o);if(n[s.name]=
+l,oN()==="webgpu"){let 
+u=Dv();"uploadToGPU"in 
+u&&ot(l.shape)>=G().get
+("WEBGPU_CPU_HANDOFF_SI
+ZE_THRESHOLD")&&u.uploa
+dToGPU(l.dataId)}}retur
+n n}function pO(e){if(e
+===null)throw new 
+Error(`Invalid input 
+value: ${JSON.stringify
+(e)}`);let t=0,n=[];e.f
+orEach(s=>{if(t+=s.byte
+Length,n.push(s.byteLen
+gth===s.buffer.byteLeng
+th?s:new 
+s.constructor(s)),!(s 
+instanceof 
+Float32Array||s 
+instanceof 
+Int32Array||s 
+instanceof 
+Uint8Array))throw new 
+Error(`Unsupported 
+TypedArray subtype: ${s
+.constructor.name}`)});
+let a=new Uint8Array(t)
+,r=0;return n.forEach(s
+=>{a.set(new Uint8Array
+(s.buffer),r),r+=s.byte
+Length}),a.buffer}var 
+Rv=typeof Buffer!="unde
+fined"&&(typeof Blob=="
+undefined"||typeof atob
+=="undefined"||typeof b
+toa=="undefined");funct
+ion Qk(e){return Rv?Buf
+fer.byteLength(e,"utf8"
+):new Blob([e]).size}fu
+nction 
+cO(e){if(Rv)return Buff
+er.from(e).toString("ba
+se64");let t=new Uint8A
+rray(e),n="";for(let a=
+0,r=t.length;a<r;a++)n+
+=String.fromCharCode(t[
+a]);return 
+btoa(n)}function 
+dO(e){if(Rv){let a=Buff
+er.from(e,"base64");ret
+urn a.buffer.slice(a.by
+teOffset,a.byteOffset+a
+.byteLength)}let 
+t=atob(e),n=new Uint8Ar
+ray(t.length);for(let a
+=0;a<t.length;++a)n.set
+([t.charCodeAt(a)],a);r
+eturn 
+n.buffer}function 
+hO(e){return 
+Fr.join(e)}function 
+eI(e){let t="/";for(e=e
+.trim();e.endsWith(t);)
+e=e.slice(0,e.length-1)
+;let 
+n=e.split(t);return 
+n[n.length-1]}function 
+cN(e,t){let n={modelTop
+ology:e.modelTopology,f
+ormat:e.format,generate
+dBy:e.generatedBy,conve
+rtedBy:e.convertedBy,we
+ightsManifest:t};return
+ e.signature!=null&&(n.
+signature=e.signature),
+e.userDefinedMetadata!=
+null&&(n.userDefinedMet
+adata=e.userDefinedMeta
+data),e.modelInitialize
+r!=null&&(n.modelInitia
+lizer=e.modelInitialize
+r),e.initializerSignatu
+re!=null&&(n.initialize
+rSignature=e.initialize
+rSignature),e.trainingC
+onfig!=null&&(n.trainin
+gConfig=e.trainingConfi
+g),n}function 
+dN(e,t,n){let a={modelT
+opology:e.modelTopology
+,format:e.format,genera
+tedBy:e.generatedBy,con
+vertedBy:e.convertedBy}
+;if(e.trainingConfig!=n
+ull&&(a.trainingConfig=
+e.trainingConfig),e.wei
+ghtsManifest!=null){if(
+!t)throw new 
+Error("modelJSON has 
+weightsManifest but 
+weightSpecs is 
+null");if(!n)throw new 
+Error("modelJSON has 
+weightsManifest but 
+weightData is null");a.
+weightSpecs=t,a.weightD
+ata=n}return e.signatur
+e!=null&&(a.signature=e
+.signature),e.userDefin
+edMetadata!=null&&(a.us
+erDefinedMetadata=e.use
+rDefinedMetadata),e.mod
+elInitializer!=null&&(a
+.modelInitializer=e.mod
+elInitializer),e.initia
+lizerSignature!=null&&(
+a.initializerSignature=
+e.initializerSignature)
+,a}async function 
+Mv(e,t){let n,a;return 
+e.weightsManifest!=null
+&&([n,a]=await t(e.weig
+htsManifest)),dN(e,n,a)
+}function rd(e){if(e.mo
+delTopology instanceof 
+ArrayBuffer)throw new 
+Error("Expected JSON 
+model topology, 
+received ArrayBuffer.")
+;return{dateSaved:new D
+ate,modelTopologyType:"
+JSON",modelTopologyByte
+s:e.modelTopology==null
+?0:Qk(JSON.stringify(e.
+modelTopology)),weightS
+pecsBytes:e.weightSpecs
+==null?0:Qk(JSON.string
+ify(e.weightSpecs)),wei
+ghtDataBytes:e.weightDa
+ta==null?0:new Fr(e.wei
+ghtData).byteLength}}fu
+nction _x(e){let 
+t=[];for(let n of e)t.p
+ush(...n.weights);retur
+n t}function mO(){let 
+e=n=>{let a=n<<13,r=0;f
+or(;!(a&8388608);)r-=83
+88608,a<<=1;return a&=-
+8388609,r+=947912704,a|
+r},t=new Uint32Array(20
+48);t[0]=0;for(let n=1;
+n<1024;n++)t[n]=e(n);fo
+r(let n=1024;n<2048;n++
+)t[n]=939524096+(n-1024
+<<13);return 
+t}function fO(){let 
+e=new Uint32Array(64);e
+[0]=0,e[31]=1199570944,
+e[32]=2147483648,e[63]=
+3347054592;for(let t=1;
+t<31;t++)e[t]=t<<23;for
+(let t=33;t<63;t++)e[t]
+=2147483648+(t-32<<23);
+return e}function 
+gO(){let e=new Uint32Ar
+ray(64);for(let t=0;t<6
+4;t++)e[t]=1024;return 
+e[0]=e[32]=0,e}function
+ bO(){let e=mO(),t=fO()
+,n=gO();return a=>{let 
+r=new ArrayBuffer(4*a.l
+ength),s=new 
+Uint32Array(r);for(let 
+i=0;i<a.length;i++){let
+ o=a[i],l=e[n[o>>10]+(o
+&1023)]+t[o>>10];s[i]=l
+}return new 
+Float32Array(r)}}var 
+ga=class La{constructor
+(){this.saveRouters=[],
+this.loadRouters=[]}sta
+tic 
+getInstance(){return La
+.instance==null&&(La.in
+stance=new 
+La),La.instance}static 
+registerSaveRouter(t){L
+a.getInstance().saveRou
+ters.push(t)}static reg
+isterLoadRouter(t){La.g
+etInstance().loadRouter
+s.push(t)}static getSav
+eHandlers(t){return La.
+getHandlers(t,"save")}s
+tatic getLoadHandlers(t
+,n){return La.getHandle
+rs(t,"load",n)}static 
+getHandlers(t,n,a){let 
+r=[];return(n==="load"?
+La.getInstance().loadRo
+uters:La.getInstance().
+saveRouters).forEach(s=
+>{let i=s(t,a);i!==null
+&&r.push(i)}),r}},yO=e=
+>ga.registerSaveRouter(
+e),xO=e=>ga.registerLoa
+dRouter(e),vO=e=>ga.get
+SaveHandlers(e),wO=(e,t
+)=>ga.getLoadHandlers(e
+,t),Ax="tensorflowjs",F
+x=1,ti="models_store",Q
+r="model_info_store";fu
+nction hN(){if(!G().get
+Bool("IS_BROWSER"))thro
+w new Error("Failed to 
+obtain IndexedDB 
+factory because the 
+current environmentis 
+not a web 
+browser.");let 
+e=typeof window=="undef
+ined"?self:window,t=e.i
+ndexedDB||e.mozIndexedD
+B||e.webkitIndexedDB||e
+.msIndexedDB||e.shimInd
+exedDB;if(t==null)throw
+ new Error("The 
+current browser does 
+not appear to support 
+IndexedDB.");return 
+t}function $x(e){let t=
+e.result;t.createObject
+Store(ti,{keyPath:"mode
+lPath"}),t.createObject
+Store(Qr,{keyPath:"mode
+lPath"})}var pi=class{c
+onstructor(e){if(this.i
+ndexedDB=hN(),e==null||
+!e)throw new 
+Error("For IndexedDB, 
+modelPath must not be 
+null, undefined or empt
+y.");this.modelPath=e}a
+sync save(e){if(e.model
+Topology instanceof 
+ArrayBuffer)throw new E
+rror("BrowserLocalStora
+ge.save() does not 
+support saving model 
+topology in binary 
+formats yet.");return t
+his.databaseAction(this
+.modelPath,e)}async 
+load(){return this.data
+baseAction(this.modelPa
+th)}databaseAction(e,t)
+{return new 
+Promise((n,a)=>{let r=t
+his.indexedDB.open(Ax,F
+x);r.onupgradeneeded=()
+=>$x(r),r.onsuccess=()=
+>{let s=r.result;if(t==
+null){let i=s.transacti
+on(ti,"readonly"),o=i.o
+bjectStore(ti).get(this
+.modelPath);o.onsuccess
+=()=>{if(o.result==null
+)return 
+s.close(),a(new 
+Error(`Cannot find 
+model with path 
+'${this.modelPath}' in 
+IndexedDB.`));n(o.resul
+t.modelArtifacts)},o.on
+error=l=>(s.close(),a(o
+.error)),i.oncomplete=(
+)=>s.close()}else{t.wei
+ghtData=Fr.join(t.weigh
+tData);let i=rd(t),o=s.
+transaction(Qr,"readwri
+te"),l=o.objectStore(Qr
+),u;try{u=l.put({modelP
+ath:this.modelPath,mode
+lArtifactsInfo:i})}catc
+h(d){return a(d)}let p;
+u.onsuccess=()=>{p=s.tr
+ansaction(ti,"readwrite
+");let d=p.objectStore(
+ti),c;try{c=d.put({mode
+lPath:this.modelPath,mo
+delArtifacts:t,modelArt
+ifactsInfo:i})}catch(h)
+{return a(h)}c.onsucces
+s=()=>n({modelArtifacts
+Info:i}),c.onerror=h=>{
+l=o.objectStore(Qr);let
+ m=l.delete(this.modelP
+ath);m.onsuccess=()=>(s
+.close(),a(c.error)),m.
+onerror=f=>(s.close(),a
+(c.error))}},u.onerror=
+d=>(s.close(),a(u.error
+)),o.oncomplete=()=>{p=
+=null?s.close():p.oncom
+plete=()=>s.close()}}},
+r.onerror=s=>a(r.error)
+})}};pi.URL_SCHEME="ind
+exeddb://";var mN=e=>G(
+).getBool("IS_BROWSER")
+&&!Array.isArray(e)&&e.
+startsWith(pi.URL_SCHEM
+E)?kO(e.slice(pi.URL_SC
+HEME.length)):null;ga.r
+egisterSaveRouter(mN);g
+a.registerLoadRouter(mN
+);function 
+kO(e){return new 
+pi(e)}function 
+IO(e){return e.startsWi
+th(pi.URL_SCHEME)?e.sli
+ce(pi.URL_SCHEME.length
+):e}var SO=class{constr
+uctor(){this.indexedDB=
+hN()}async 
+listModels(){return 
+new 
+Promise((e,t)=>{let n=t
+his.indexedDB.open(Ax,F
+x);n.onupgradeneeded=()
+=>$x(n),n.onsuccess=()=
+>{let a=n.result,r=a.tr
+ansaction(Qr,"readonly"
+),s=r.objectStore(Qr).g
+etAll();s.onsuccess=()=
+>{let i={};for(let o 
+of s.result)i[o.modelPa
+th]=o.modelArtifactsInf
+o;e(i)},s.onerror=i=>(a
+.close(),t(s.error)),r.
+oncomplete=()=>a.close(
+)},n.onerror=a=>t(n.err
+or)})}async 
+removeModel(e){return 
+e=IO(e),new 
+Promise((t,n)=>{let a=t
+his.indexedDB.open(Ax,F
+x);a.onupgradeneeded=()
+=>$x(a),a.onsuccess=()=
+>{let r=a.result,s=r.tr
+ansaction(Qr,"readwrite
+"),i=s.objectStore(Qr),
+o=i.get(e),l;o.onsucces
+s=()=>{if(o.result==nul
+l)return 
+r.close(),n(new 
+Error(`Cannot find 
+model with path '${e}' 
+in IndexedDB.`));{let u
+=i.delete(e),p=()=>{l=r
+.transaction(ti,"readwr
+ite");let d=l.objectSto
+re(ti).delete(e);d.onsu
+ccess=()=>t(o.result.mo
+delArtifactsInfo),d.one
+rror=c=>n(o.error)};u.o
+nsuccess=p,u.onerror=d=
+>(p(),r.close(),n(o.err
+or))}},o.onerror=u=>(r.
+close(),n(o.error)),s.o
+ncomplete=()=>{l==null?
+r.close():l.oncomplete=
+()=>r.close()}},a.onerr
+or=r=>n(a.error)})}},Tr
+="/",Nl="tensorflowjs_m
+odels",fN="info",NO="mo
+del_topology",TO="weigh
+t_specs",CO="weight_dat
+a",EO="model_metadata";
+function gN(e){return{i
+nfo:[Nl,e,fN].join(Tr),
+topology:[Nl,e,NO].join
+(Tr),weightSpecs:[Nl,e,
+TO].join(Tr),weightData
+:[Nl,e,CO].join(Tr),mod
+elMetadata:[Nl,e,EO].jo
+in(Tr)}}function 
+bN(e){for(let t of Obje
+ct.values(e))window.loc
+alStorage.removeItem(t)
+}function _O(e){let t=e
+.split(Tr);if(t.length<
+3)throw new 
+Error(`Invalid key 
+format: ${e}`);return t
+.slice(1,t.length-1).jo
+in(Tr)}function 
+AO(e){return e.startsWi
+th(ci.URL_SCHEME)?e.sli
+ce(ci.URL_SCHEME.length
+):e}var ci=class{constr
+uctor(e){if(!G().getBoo
+l("IS_BROWSER")||typeof
+ window=="undefined"||t
+ypeof window.localStora
+ge=="undefined")throw 
+new Error("The current 
+environment does not 
+support local storage."
+);if(this.LS=window.loc
+alStorage,e==null||!e)t
+hrow new Error("For 
+local storage, 
+modelPath must not be 
+null, undefined or empt
+y.");this.modelPath=e,t
+his.keys=gN(this.modelP
+ath)}async save(e){if(e
+.modelTopology 
+instanceof 
+ArrayBuffer)throw new E
+rror("BrowserLocalStora
+ge.save() does not 
+support saving model 
+topology in binary 
+formats yet.");{let t=J
+SON.stringify(e.modelTo
+pology),n=JSON.stringif
+y(e.weightSpecs),a=rd(e
+),r=Fr.join(e.weightDat
+a);try{this.LS.setItem(
+this.keys.info,JSON.str
+ingify(a)),this.LS.setI
+tem(this.keys.topology,
+t),this.LS.setItem(this
+.keys.weightSpecs,n),th
+is.LS.setItem(this.keys
+.weightData,cO(r));let 
+s={format:e.format,gene
+ratedBy:e.generatedBy,c
+onvertedBy:e.convertedB
+y,signature:e.signature
+!=null?e.signature:void
+ 0,userDefinedMetadata:
+e.userDefinedMetadata!=
+null?e.userDefinedMetad
+ata:void 0,modelInitial
+izer:e.modelInitializer
+!=null?e.modelInitializ
+er:void 0,initializerSi
+gnature:e.initializerSi
+gnature!=null?e.initial
+izerSignature:void 0,tr
+ainingConfig:e.training
+Config!=null?e.training
+Config:void 0};return t
+his.LS.setItem(this.key
+s.modelMetadata,JSON.st
+ringify(s)),{modelArtif
+actsInfo:a}}catch(s){th
+row bN(this.keys),new 
+Error(`Failed to save 
+model 
+'${this.modelPath}' to 
+local storage: size 
+quota being exceeded 
+is a possible cause of 
+this failure: modelTopo
+logyBytes=${a.modelTopo
+logyBytes}, weightSpecs
+Bytes=${a.weightSpecsBy
+tes}, weightDataBytes=$
+{a.weightDataBytes}.`)}
+}}async load(){let e=JS
+ON.parse(this.LS.getIte
+m(this.keys.info));if(e
+==null)throw new 
+Error(`In local 
+storage, there is no 
+model with name '${this
+.modelPath}'`);if(e.mod
+elTopologyType!=="JSON"
+)throw new Error("Brows
+erLocalStorage does 
+not support loading 
+non-JSON model 
+topology yet.");let t={
+},n=JSON.parse(this.LS.
+getItem(this.keys.topol
+ogy));if(n==null)throw 
+new Error(`In local 
+storage, the topology 
+of model 
+'${this.modelPath}' is 
+missing.`);t.modelTopol
+ogy=n;let a=JSON.parse(
+this.LS.getItem(this.ke
+ys.weightSpecs));if(a==
+null)throw new 
+Error(`In local 
+storage, the weight 
+specs of model 
+'${this.modelPath}' 
+are missing.`);t.weight
+Specs=a;let r=this.LS.g
+etItem(this.keys.modelM
+etadata);if(r!=null){le
+t i=JSON.parse(r);t.for
+mat=i.format,t.generate
+dBy=i.generatedBy,t.con
+vertedBy=i.convertedBy,
+i.signature!=null&&(t.s
+ignature=i.signature),i
+.userDefinedMetadata!=n
+ull&&(t.userDefinedMeta
+data=i.userDefinedMetad
+ata),i.modelInitializer
+!=null&&(t.modelInitial
+izer=i.modelInitializer
+),i.initializerSignatur
+e!=null&&(t.initializer
+Signature=i.initializer
+Signature),i.trainingCo
+nfig!=null&&(t.training
+Config=i.trainingConfig
+)}let s=this.LS.getItem
+(this.keys.weightData);
+if(s==null)throw new 
+Error(`In local 
+storage, the binary 
+weight values of model 
+'${this.modelPath}' 
+are missing.`);return t
+.weightData=dO(s),t}};c
+i.URL_SCHEME="localstor
+age://";var yN=e=>G().g
+etBool("IS_BROWSER")&&!
+Array.isArray(e)&&e.sta
+rtsWith(ci.URL_SCHEME)?
+FO(e.slice(ci.URL_SCHEM
+E.length)):null;ga.regi
+sterSaveRouter(yN);ga.r
+egisterLoadRouter(yN);f
+unction FO(e){return 
+new ci(e)}var $O=class{
+constructor(){A(G().get
+Bool("IS_BROWSER"),()=>
+"Current environment 
+is not a web 
+browser"),A(typeof wind
+ow=="undefined"||typeof
+ window.localStorage!="
+undefined",()=>"Current
+ browser does not 
+appear to support local
+Storage"),this.LS=windo
+w.localStorage}async 
+listModels(){let e={},t
+=Nl+Tr,n=Tr+fN;for(let 
+a=0;a<this.LS.length;++
+a){let r=this.LS.key(a)
+;if(r.startsWith(t)&&r.
+endsWith(n)){let s=_O(r
+);e[s]=JSON.parse(this.
+LS.getItem(r))}}return 
+e}async removeModel(e){
+e=AO(e);let t=gN(e);if(
+this.LS.getItem(t.info)
+==null)throw new 
+Error(`Cannot find 
+model at path 
+'${e}'`);let n=JSON.par
+se(this.LS.getItem(t.in
+fo));return bN(t),n}},_
+l="://",us=class qr{con
+structor(){this.manager
+s={}}static 
+getInstance(){return qr
+.instance==null&&(qr.in
+stance=new 
+qr),qr.instance}static 
+registerManager(t,n){A(
+t!=null,()=>"scheme 
+must not be undefined 
+or null."),t.endsWith(_
+l)&&(t=t.slice(0,t.inde
+xOf(_l))),A(t.length>0,
+()=>"scheme must not 
+be an empty 
+string.");let a=qr.getI
+nstance();A(a.managers[
+t]==null,()=>`A model 
+store manager is 
+already registered for 
+scheme '${t}'.`),a.mana
+gers[t]=n}static 
+getManager(t){let n=qr.
+getInstance().managers[
+t];if(n==null)throw 
+new Error(`Cannot find 
+model manager for 
+scheme '${t}'`);return 
+n}static 
+getSchemes(){return Obj
+ect.keys(qr.getInstance
+().managers)}};function
+ Rh(e){if(e.indexOf(_l)
+===-1)throw new 
+Error(`The url string 
+provided does not 
+contain a scheme. 
+Supported schemes are: 
+${us.getSchemes().join(
+",")}`);return{scheme:e
+.split(_l)[0],path:e.sp
+lit(_l)[1]}}async 
+function xN(e,t,n=!1){A
+(e!==t,()=>`Old path 
+and new path are the 
+same: '${e}'`);let a=ga
+.getLoadHandlers(e);A(a
+.length>0,()=>`Copying 
+failed because no load 
+handler is found for 
+source URL ${e}.`),A(a.
+length<2,()=>`Copying 
+failed because more 
+than one (${a.length}) 
+load handlers for 
+source URL ${e}.`);let 
+r=a[0],s=ga.getSaveHand
+lers(t);A(s.length>0,()
+=>`Copying failed 
+because no save 
+handler is found for 
+destination URL ${t}.`)
+,A(s.length<2,()=>`Copy
+ing failed because 
+more than one 
+(${a.length}) save 
+handlers for 
+destination URL 
+${t}.`);let i=s[0],o=Rh
+(e).scheme,l=Rh(e).path
+,u=o===Rh(e).scheme,p=a
+wait 
+r.load();n&&u&&await us
+.getManager(o).removeMo
+del(l);let d=await 
+i.save(p);return 
+n&&!u&&await us.getMana
+ger(o).removeModel(l),d
+.modelArtifactsInfo}asy
+nc function DO(){let e=
+us.getSchemes(),t={};fo
+r(let n of e){let 
+a=await us.getManager(n
+).listModels();for(let 
+r in a){let s=n+_l+r;t[
+s]=a[r]}}return 
+t}async function 
+RO(e){let 
+t=Rh(e);return us.getMa
+nager(t.scheme).removeM
+odel(t.path)}async 
+function 
+MO(e,t){return 
+xN(e,t,!1)}async 
+function 
+OO(e,t){return 
+xN(e,t,!0)}var PO=class
+{constructor(){this.mes
+sageName="setTimeoutCus
+tom",this.functionRefs=
+[],this.handledMessageC
+ount=0,this.hasEventLis
+tener=!1}fetch(e,t){ret
+urn fetch(e,t)}now(){re
+turn performance.now()}
+encode(e,t){if(t!=="utf
+-8"&&t!=="utf8")throw 
+new Error(`Browser's 
+encoder only supports 
+utf-8, but got 
+${t}`);return this.text
+Encoder==null&&(this.te
+xtEncoder=new TextEncod
+er),this.textEncoder.en
+code(e)}decode(e,t){ret
+urn new TextDecoder(t).
+decode(e)}setTimeoutCus
+tom(e,t){if(typeof wind
+ow=="undefined"||!G().g
+etBool("USE_SETTIMEOUTC
+USTOM")){setTimeout(e,t
+);return}this.functionR
+efs.push(e),setTimeout(
+()=>{window.postMessage
+({name:this.messageName
+,index:this.functionRef
+s.length-1},"*")},t),th
+is.hasEventListener||(t
+his.hasEventListener=!0
+,window.addEventListene
+r("message",n=>{if(n.so
+urce===window&&n.data.n
+ame===this.messageName)
+{n.stopPropagation();le
+t a=this.functionRefs[n
+.data.index];a(),this.h
+andledMessageCount++,th
+is.handledMessageCount=
+==this.functionRefs.len
+gth&&(this.functionRefs
+=[],this.handledMessage
+Count=0)}},!0))}isTyped
+Array(e){return XS(e)}}
+;if(G().get("IS_BROWSER
+")){G().setPlatform("br
+owser",new PO);try{us.r
+egisterManager(ci.URL_S
+CHEME,new $O)}catch(e){
+}try{us.registerManager
+(pi.URL_SCHEME,new 
+SO)}catch(e){}}var LO={
+importFetch:()=>_R()},o
+x,zO=class{constructor(
+){this.util=AR(),this.t
+extEncoder=new this.uti
+l.TextEncoder}fetch(e,t
+){return G().global.fet
+ch!=null?G().global.fet
+ch(e,t):(ox==null&&(ox=
+LO.importFetch()),ox(e,
+t))}now(){let e=process
+.hrtime();return e[0]*1
+e3+e[1]/1e6}encode(e,t)
+{if(t!=="utf-8"&&t!=="u
+tf8")throw new 
+Error(`Node built-in 
+encoder only supports 
+utf-8, but got 
+${t}`);return this.text
+Encoder.encode(e)}decod
+e(e,t){return 
+e.length===0?"":new thi
+s.util.TextDecoder(t).d
+ecode(e)}isTypedArray(e
+){return this.util.type
+s.isFloat32Array(e)||th
+is.util.types.isInt32Ar
+ray(e)||this.util.types
+.isUint8Array(e)||this.
+util.types.isUint8Clamp
+edArray(e)}};G().get("I
+S_NODE")&&!G().get("IS_
+BROWSER")&&G().setPlatf
+orm("node",new 
+zO);function Oe(e,t="fl
+oat32",n){return t=t||"
+float32",na(e),new 
+Wt(e,t,n)}function 
+WO(e,t){let n=E(e,"x","
+cast");if(!LS(t))throw 
+new Error(`Failed to 
+cast to unknown dtype $
+{t}`);if(t==="string"&&
+n.dtype!=="string"||t!=
+="string"&&n.dtype==="s
+tring")throw new 
+Error("Only strings 
+can be casted to 
+strings");let a={x:n},r
+={dtype:t};return P.run
+Kernel(Mi,a,r)}var re=L
+({cast_:WO});function 
+BO(e){let t={x:E(e,"x",
+"clone","string_or_nume
+ric")};return 
+P.runKernel(eo,t)}var s
+r=L({clone_:BO});functi
+on Ov(e,t=!1){console.l
+og(e.toString(t))}aN();
+var VO={buffer:Oe,cast:
+re,clone:sr,print:Ov};P
+M(VO);function 
+UO(e,t){let n=E(e,"a","
+add"),a=E(t,"b","add");
+[n,a]=_t(n,a);let 
+r={a:n,b:a};return 
+P.runKernel(vs,r)}var X
+=L({add_:UO});function 
+GO(e,t){let n=E(e,"a","
+floorDiv"),a=E(t,"b","f
+loorDiv");[n,a]=_t(n,a)
+;let 
+r={a:n,b:a};return 
+P.runKernel(Zi,r)}var P
+m=L({floorDiv_:GO});fun
+ction HO(e,t){let n=E(e
+,"a","div"),a=E(t,"b","
+div");if([n,a]=_t(n,a),
+n.dtype==="int32"&&a.dt
+ype==="int32")return 
+Pm(n,a);let r={a:n,b:a}
+,s={};return P.runKerne
+l(Hi,r,s)}var he=L({div
+_:HO});function 
+jO(e,t){let n=E(e,"a","
+mul"),a=E(t,"b","mul");
+[n,a]=_t(n,a);let 
+r={a:n,b:a};return 
+P.runKernel(bo,r)}var z
+=L({mul_:jO});function 
+qO(e){let t=E(e,"x","ab
+s");if(t.dtype==="compl
+ex64"){let 
+n={x:t};return P.runKer
+nel(Oc,n)}else{let 
+n={x:t};return 
+P.runKernel(Yl,n)}}var 
+Lt=L({abs_:qO});functio
+n KO(e){let t={x:E(e,"x
+","acos")};return 
+P.runKernel(Ni,t)}var P
+v=L({acos_:KO});functio
+n XO(e){let t={x:E(e,"x
+","acosh")};return 
+P.runKernel(Ti,t)}var L
+v=L({acosh_:XO});functi
+on YO(e){A(Array.isArra
+y(e),()=>"The argument 
+passed to tf.addN() 
+must be a list of tenso
+rs"),A(e.length>=1,()=>
+`Must pass at least 
+one tensor to 
+tf.addN(), but got 
+${e.length}`);let t=e.m
+ap((r,s)=>E(r,`tensors$
+{s}`,"addN")),n=t[0];t.
+forEach(r=>{if(r.dtype!
+==n.dtype)throw new 
+Error("All tensors 
+passed to tf.addN() 
+must have the same dtyp
+e")}),t.forEach(r=>{if(
+!Ar(r.shape,n.shape))th
+row new Error("All 
+tensors passed to 
+tf.addN() must have 
+the same shape")});let 
+a=t;return 
+P.runKernel(Ci,a)}var v
+N=L({addN_:YO});functio
+n 
+ZO(e,t=null,n=!1){let a
+={x:E(e,"x","all","bool
+")},r={axis:t,keepDims:
+n};return P.runKernel(Z
+l,a,r)}var Lm=L({all_:Z
+O});function 
+JO(e,t=null,n=!1){let a
+={x:E(e,"x","any","bool
+")},r={axis:t,keepDims:
+n};return P.runKernel(J
+l,a,r)}var yc=L({any_:J
+O});function 
+QO(e,t=0){let n={x:E(e,
+"x","argMax")},a={axis:
+t};return P.runKernel(Q
+l,n,a)}var di=L({argMax
+_:QO});function 
+eP(e,t=0){let n={x:E(e,
+"x","argMin")},a={axis:
+t};return P.runKernel(e
+u,n,a)}var zv=L({argMin
+_:eP});function 
+tP(e){let t={x:E(e,"x",
+"asin")};return 
+P.runKernel(Ei,t)}var W
+v=L({asin_:tP});functio
+n nP(e){let t={x:E(e,"x
+","asinh")};return 
+P.runKernel(_i,t)}var B
+v=L({asinh_:nP});functi
+on aP(e){let t={x:E(e,"
+x","atan")};return 
+P.runKernel(Ai,t)}var V
+v=L({atan_:aP});functio
+n rP(e,t){let n=E(e,"a"
+,"atan2"),a=E(t,"b","at
+an2");[n,a]=_t(n,a);let
+ r={a:n,b:a};return 
+P.runKernel($i,r)}var U
+v=L({atan2_:rP});functi
+on sP(e){let t={x:E(e,"
+x","atanh")};return 
+P.runKernel(Fi,t)}var G
+v=L({atanh_:sP});functi
+on iP(e,t,n,a,r="NHWC",
+s){let i=e[3],o=[...t,i
+],l=IN(r);return sd(e,o
+,n,s,a,null,null,l)}fun
+ction wN(e,t,n,a,r,s,i=
+"channelsLast"){let[o,l
+]=xc(t),u;if(i==="chann
+elsLast")u=[o,l,e[3],e[
+3]];else if(i==="channe
+lsFirst")u=[o,l,e[1],e[
+1]];else throw new 
+Error(`Unknown 
+dataFormat 
+${i}`);return sd(e,u,n,
+a,r,s,!1,i)}function oP
+(e,t,n,a,r,s,i="NDHWC")
+{let[o,l,u]=Dx(t),p,d;i
+f(i==="NDHWC")d="channe
+lsLast",p=[o,l,u,e[4],e
+[4]];else if(i==="NCDHW
+")d="channelsFirst",p=[
+o,l,u,e[1],e[1]];else 
+throw new 
+Error(`Unknown 
+dataFormat 
+${i}`);return kN(e,p,n,
+a,r,!1,d,s)}function sd
+(e,t,n,a,r,s,i=!1,o="ch
+annelsLast"){let[l,u,p,
+d]=[-1,-1,-1,-1];if(o==
+="channelsLast")[l,u,p,
+d]=e;else if(o==="chann
+elsFirst")[l,d,u,p]=e;e
+lse throw new 
+Error(`Unknown 
+dataFormat ${o}`);let[c
+,h,,m]=t,[f,g]=xc(n),[b
+,y]=xc(a),x=Al(c,b),v=A
+l(h,y),{padInfo:I,outHe
+ight:N,outWidth:C}=pP(r
+,u,p,f,g,x,v,s,o),_=i?m
+*d:m,F;return o==="chan
+nelsFirst"?F=[l,_,N,C]:
+o==="channelsLast"&&(F=
+[l,N,C,_]),{batchSize:l
+,dataFormat:o,inHeight:
+u,inWidth:p,inChannels:
+d,outHeight:N,outWidth:
+C,outChannels:_,padInfo
+:I,strideHeight:f,strid
+eWidth:g,filterHeight:c
+,filterWidth:h,effectiv
+eFilterHeight:x,effecti
+veFilterWidth:v,dilatio
+nHeight:b,dilationWidth
+:y,inShape:e,outShape:F
+,filterShape:t}}functio
+n kN(e,t,n,a,r,s=!1,i="
+channelsLast",o){let[l,
+u,p,d,c]=[-1,-1,-1,-1,-
+1];if(i==="channelsLast
+")[l,u,p,d,c]=e;else if
+(i==="channelsFirst")[l
+,c,u,p,d]=e;else throw 
+new Error(`Unknown 
+dataFormat ${i}`);let[h
+,m,f,,g]=t,[b,y,x]=Dx(n
+),[v,I,N]=Dx(a),C=Al(h,
+v),_=Al(m,I),F=Al(f,N),
+{padInfo:D,outDepth:$,o
+utHeight:S,outWidth:M}=
+cP(r,u,p,d,b,y,x,C,_,F,
+o),B=s?g*c:g,U;return i
+==="channelsFirst"?U=[l
+,B,$,S,M]:i==="channels
+Last"&&(U=[l,$,S,M,B]),
+{batchSize:l,dataFormat
+:i,inDepth:u,inHeight:p
+,inWidth:d,inChannels:c
+,outDepth:$,outHeight:S
+,outWidth:M,outChannels
+:B,padInfo:D,strideDept
+h:b,strideHeight:y,stri
+deWidth:x,filterDepth:h
+,filterHeight:m,filterW
+idth:f,effectiveFilterD
+epth:C,effectiveFilterH
+eight:_,effectiveFilter
+Width:F,dilationDepth:v
+,dilationHeight:I,dilat
+ionWidth:N,inShape:e,ou
+tShape:U,filterShape:t}
+}function lP(e,t,n,a,r)
+{a==null&&(a=Hv(e,t,n))
+;let s=e[0],i=e[1],o=vc
+((s-t+2*a)/n+1,r),l=vc(
+(i-t+2*a)/n+1,r);return
+[o,l]}function uP(e,t,n
+,a,r,s){r==null&&(r=Hv(
+e,t[0],a[0]));let 
+i=[0,0,0,n];for(let o=0
+;o<3;o++)e[o]+2*r>=t[o]
+&&(i[o]=vc((e[o]-t[o]+2
+*r)/a[o]+1,s));return 
+i}function 
+Hv(e,t,n,a=1){let 
+r=Al(t,a);return Math.f
+loor((e[0]*(n-1)-n+r)/2
+)}function 
+xc(e){return typeof e==
+"number"?[e,e,e]:e.leng
+th===2?[e[0],e[1],1]:e}
+function Dx(e){return 
+typeof e=="number"?[e,e
+,e]:e}function 
+Al(e,t){return t<=1?e:e
++(e-1)*(t-1)}function p
+P(e,t,n,a,r,s,i,o,l){le
+t u,p,d;if(typeof e=="n
+umber"){u={top:e,bottom
+:e,left:e,right:e,type:
+e===0?"VALID":"NUMBER"}
+;let c=lP([t,n],s,a,e,o
+);p=c[0],d=c[1]}else if
+(e==="same"){p=Math.cei
+l(t/a),d=Math.ceil(n/r)
+;let c=Math.max(0,(p-1)
+*a+s-t),h=Math.max(0,(d
+-1)*r+i-n),m=Math.floor
+(c/2),f=c-m,g=Math.floo
+r(h/2),b=h-g;u={top:m,b
+ottom:f,left:g,right:b,
+type:"SAME"}}else if(e=
+=="valid")u={top:0,bott
+om:0,left:0,right:0,typ
+e:"VALID"},p=Math.ceil(
+(t-s+1)/a),d=Math.ceil(
+(n-i+1)/r);else 
+if(typeof 
+e=="object"){let c=l===
+"channelsLast"?e[1][0]:
+e[2][0],h=l==="channels
+Last"?e[1][1]:e[2][1],m
+=l==="channelsLast"?e[2
+][0]:e[3][0],f=l==="cha
+nnelsLast"?e[2][1]:e[3]
+[1];u={top:c,bottom:h,l
+eft:m,right:f,type:c===
+0&&h===0&&m===0&&f===0?
+"VALID":"EXPLICIT"},p=v
+c((t-s+c+h)/a+1,o),d=vc
+((n-i+m+f)/r+1,o)}else 
+throw Error(`Unknown 
+padding parameter: ${e}
+`);return{padInfo:u,out
+Height:p,outWidth:d}}fu
+nction cP(e,t,n,a,r,s,i
+,o,l,u,p){let d,c,h,m;i
+f(e==="valid"&&(e=0),ty
+peof e=="number"){d={to
+p:e,bottom:e,left:e,rig
+ht:e,front:e,back:e,typ
+e:e===0?"VALID":"NUMBER
+"};let f=uP([t,n,a,1],[
+o,l,u],1,[r,s,i],e,p);c
+=f[0],h=f[1],m=f[2]}els
+e if(e==="same"){c=Math
+.ceil(t/r),h=Math.ceil(
+n/s),m=Math.ceil(a/i);l
+et f=(c-1)*r+o-t,g=(h-1
+)*s+l-n,b=(m-1)*i+u-a,y
+=Math.floor(f/2),x=f-y,
+v=Math.floor(g/2),I=g-v
+,N=Math.floor(b/2),C=b-
+N;d={top:v,bottom:I,lef
+t:N,right:C,front:y,bac
+k:x,type:"SAME"}}else 
+throw Error(`Unknown 
+padding parameter: ${e}
+`);return{padInfo:d,out
+Depth:c,outHeight:h,out
+Width:m}}function 
+vc(e,t){if(!t)return Ma
+th.trunc(e);switch(t){c
+ase"round":return Math.
+round(e);case"ceil":ret
+urn Math.ceil(e);case"f
+loor":return Math.floor
+(e);default:throw new 
+Error(`Unknown 
+roundingMode 
+${t}`)}}function ps(e){
+let[t,n,a]=xc(e);return
+ t===1&&n===1&&a===1}fu
+nction dr(e,t){return 
+ps(e)||ps(t)}function 
+hi(e){return xc(e).ever
+y(t=>t>0)}function IN(e
+){if(e==="NHWC")return"
+channelsLast";if(e==="N
+CHW")return"channelsFir
+st";throw new 
+Error(`Unknown 
+dataFormat 
+${e}`)}function Tn(e,t,
+n){if(n!=null){if(typeo
+f t=="string")throw 
+Error(`Error in ${e}: 
+pad must be an integer 
+when using 
+dimRoundingMode ${n} 
+but got pad 
+${t}.`);if(typeof t=="n
+umber")A($l(t),()=>`Err
+or in ${e}: pad must 
+be an integer when 
+using dimRoundingMode 
+${n} but got pad 
+${t}.`);else if(typeof 
+t=="object")t.forEach(a
+=>{a.forEach(r=>{A($l(r
+),()=>`Error in ${e}: 
+pad must be an integer 
+when using 
+dimRoundingMode ${n} 
+but got pad 
+${r}.`)})});else throw 
+Error(`Error in ${e}: 
+Unknown padding 
+parameter: 
+${t}`)}}function 
+dP(e,t){let n={x:E(e,"x
+","reshape","string_or_
+numeric")},a={shape:t};
+return P.runKernel(Ru,n
+,a)}var W=L({reshape_:d
+P});function 
+hP(e,t,n,a,r){let s=E(e
+,"x","avgPool","float32
+"),i=1;A(dr(n,i),()=>`E
+rror in avgPool: 
+Either strides or 
+dilations must be 1. 
+Got strides ${n} and 
+dilations '${i}'`);let 
+o=s,l=!1;s.rank===3&&(l
+=!0,o=W(s,[1,s.shape[0]
+,s.shape[1],s.shape[2]]
+)),A(o.rank===4,()=>`Er
+ror in avgPool: x must 
+be rank 4 but got rank 
+${o.rank}.`),Tn("avgPoo
+l",a,r);let u={x:o},p={
+filterSize:t,strides:n,
+pad:a,dimRoundingMode:r
+},d=P.runKernel(Di,u,p)
+;return d=re(d,s.dtype)
+,l?W(d,[d.shape[1],d.sh
+ape[2],d.shape[3]]):d}v
+ar ya=L({avgPool_:hP});
+function mP(e,t,n,a,r,s
+="NDHWC"){let i=E(e,"x"
+,"avgPool3d","float32")
+,o=i,l=!1;i.rank===4&&(
+l=!0,o=W(i,[1,i.shape[0
+],i.shape[1],i.shape[2]
+,i.shape[3]])),A(o.rank
+===5,()=>`Error in 
+avgPool3d: x must be 
+rank 5 but got rank ${o
+.rank}.`),A(s==="NDHWC"
+,()=>`Error in 
+avgPool3d: Only NDHWC 
+is currently 
+supported, but got 
+dataFormat of 
+${s}`),A(typeof n=="num
+ber"&&n>0||Array.isArra
+y(n)&&n[0]>0&&n[1]>0&&n
+[2]>0,()=>`Error in 
+avgPool3d: Stride must 
+be > 0, but got '${n}'`
+),Tn("avgPool3d",a,r);l
+et u={x:o},p={filterSiz
+e:t,strides:n,pad:a,dim
+RoundingMode:r,dataForm
+at:s},d=P.runKernel(tu,
+u,p);return d=re(d,o.dt
+ype),l?W(d,[d.shape[1],
+d.shape[2],d.shape[3],d
+.shape[4]]):d}var jv=L(
+{avgPool3d_:mP});functi
+on fP(e,t=0){A(e.length
+>=1,()=>"Pass at least 
+one tensor to 
+concat");let n=bc(e,"te
+nsors","concat","string
+_or_numeric");if(n[0].d
+type==="complex64"&&n.f
+orEach(s=>{if(s.dtype!=
+="complex64")throw new 
+Error(`Cannot 
+concatenate complex64 
+tensors with a tensor
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+        
+
+TypeError: 
+this.util.TextEncoder 
+is not a constructor
+    at new zO (file:///
+C:/Users/YASEEN/Desktop
+/prepvio-updated/Prepvi
+o-/Backened/node_module
+s/@vladmandic/face-api/
+dist/face-api.esm.js:14
+:50947)
+    at file:///C:/Users
+/YASEEN/Desktop/prepvio
+-updated/Prepvio-/Backe
+ned/node_modules/@vladm
+andic/face-api/dist/fac
+e-api.esm.js:14:51586
+    at ModuleJob.run (n
+ode:internal/modules/es
+m/module_job:325:25)
+    at async 
+ModuleLoader.import (no
+de:internal/modules/esm
+/loader:606:24)
+    at async asyncRunEn
+tryPointWithESMLoader (
+node:internal/modules/r
+un_main:117:5)
+
+Node.js v20.19.5

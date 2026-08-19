@@ -1,0 +1,51 @@
+(node:26420) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
+versions published after the first week of January 2027
+will require node >=22. You are running node v20.20.0.
+
+To continue receiving updates to AWS services, bug fixes,
+and security updates please upgrade to node >=22.
+
+More information can be found at: https://a.co/c895JFp
+(Use `node --trace-warnings ...` to show where the warning was created)
+[Quiz Pipeline] Failed to resume quiz job for video gEGMphclBvY: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video JF2sC0GGhro: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video AkiewPWgoLE: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video kj3QRpJQAjs: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video zGN6BpeRxps: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video _BgmuT-2gU0: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video 6wkwT65Zkr4: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video 6-nso0cXcmw: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video nrqgUMiVhbc: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video fc0QZdYYkI4: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video rphayBa3g5U: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video FL7K2A2KH7g: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video 0e2e2KcoQm4: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video GoKZo9Inc9Q: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video jXioURQ2v8E: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video 3oAwVHjb6Uw: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video ZEKiIwWv9nM: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video t2_Q2BRzeEE: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video GtovwKDemnI: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+[Quiz Pipeline] Failed to resume quiz job for video yyUHQIec83I: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}
+❌ Generate report error: No Q&A pairs found in interview data
+VersionError: No matching document found for id "6a8593c2d068257b9b33667e" version 2 modifiedPaths "courseProgress, courseProgress.0, courseProgress.0.totalSeconds"
+    at generateVersionError (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:596:10)
+    at model.save (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:658:30)
+    at file:///C:/Users/user/Documents/Codex/2026-08-06/afnanahmed321-prepvio-git-https-github-com/work/Prepvio/Backened/Routes/userRoutes.js:1367:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+VersionError: No matching document found for id "6a8593c2d068257b9b33667e" version 2 modifiedPaths "courseProgress, courseProgress.0, courseProgress.0.totalSeconds"
+    at generateVersionError (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:596:10)
+    at model.save (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:658:30)
+    at file:///C:/Users/user/Documents/Codex/2026-08-06/afnanahmed321-prepvio-git-https-github-com/work/Prepvio/Backened/Routes/userRoutes.js:1367:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+VersionError: No matching document found for id "6a8593c2d068257b9b33667e" version 3 modifiedPaths "courseProgress, courseProgress.0, courseProgress.0.videos, courseProgress.0.lastAccessed"
+    at generateVersionError (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:596:10)
+    at model.save (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:658:30)
+    at file:///C:/Users/user/Documents/Codex/2026-08-06/afnanahmed321-prepvio-git-https-github-com/work/Prepvio/Backened/Routes/userRoutes.js:710:14
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+VersionError: No matching document found for id "6a8593c2d068257b9b33667e" version 6 modifiedPaths "courseProgress, courseProgress.1, courseProgress.1.videos, courseProgress.1.lastAccessed"
+    at generateVersionError (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:596:10)
+    at model.save (C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\Backened\node_modules\mongoose\lib\model.js:658:30)
+    at file:///C:/Users/user/Documents/Codex/2026-08-06/afnanahmed321-prepvio-git-https-github-com/work/Prepvio/Backened/Routes/userRoutes.js:710:14
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+━━━ [Video Processing Pipeline] Initialization FAILED for Video ix9cRaBkVe0: 401 {"error":{"message":"Invalid API Key","type":"invalid_request_error","code":"invalid_api_key"}}

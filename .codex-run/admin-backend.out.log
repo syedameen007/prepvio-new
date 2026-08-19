@@ -1,0 +1,11 @@
+
+> admin@1.0.0 start
+> node index.js
+
+[dotenv@17.2.2] injecting env (3) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+DEBUG: env.js - dotenv loading: SUCCESS
+DEBUG: env.js - .env path used: C:\Users\user\Documents\Codex\2026-08-06\afnanahmed321-prepvio-git-https-github-com\work\Prepvio\AdminBackend\.env
+DEBUG: env.js - JWT_SECRET loaded: Yes
+AdminBackend connecting to: mongodb+srv://afnanyaseen48_db_user:zqpUpjloDpmwDrEV@prepvio.lfpjat8.mongodb.net/PrepVioAdmin
+Server running on port 8000
+MongoDB connected successfully
